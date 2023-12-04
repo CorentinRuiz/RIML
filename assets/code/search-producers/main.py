@@ -37,7 +37,7 @@ def clone_project(project_name):
     """
     # Cloner le projet
     os.chdir('./projects')
-    subprocess.run(['git', 'clone', project])
+    subprocess.run(['git', 'clone', f'https://github.com/{project}'])
     os.chdir('..')
     print(f"Project {project_name} cloned")
 
