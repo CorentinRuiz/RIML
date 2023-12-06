@@ -59,7 +59,7 @@ def clone_project(project_name):
         print(f"{BCOLORS.OKBLUE}Folder ./projects created{BCOLORS.ENDC}")
 
     # Cloner le projet s'il n'existe pas
-    if os.path.exists(f'./projects/{project_name}'):
+    if os.path.exists(f'./projects/{project_name.split("/")[1]}'):
         print(f"{BCOLORS.WARNING}Project {project_name} already exists{BCOLORS.ENDC}")
         return
     os.chdir('./projects')
@@ -69,6 +69,82 @@ def clone_project(project_name):
     print(f"{BCOLORS.OKBLUE}Project {project_name} cloned{BCOLORS.ENDC}")
 
 
+def save_producers(producers_list, producers_output):
+    """
+    Sauvegarder les producer kafka dans un fichier json
+    :param producers_list: liste des producer kafka
+    :param producers_output: fichier de sortie
+    """
+    if len(producers_list) == 0:
+        print(f"{BCOLORS.WARNING}No producers found{BCOLORS.ENDC}")
+        exit(0)
+    with open(producers_output, 'w') as ofile:
+        json.dump(producers_list, ofile, indent=4)
+        print(f"{BCOLORS.OKGREEN}Producers written in {producers_output}{BCOLORS.ENDC}")
+
+
+def get_producers(content, file, project_name, service, config_value_cache=None):
+    """
+    Extraire les producer kafka d'un fichier
+    :param content: contenu du fichier
+    :param file: nom du fichier
+    :param project_name: nom du projet
+    :return: liste des producer kafka
+    """
+    # Remplacer les valeurs de configuration Spring par leur valeur
+    if config_value_cache is None:
+        config_value_cache = {}
+    content = replace_config_values(content, config_value_cache, service)
+
+    producers = []
+    matches = re.findall(r'\.send\((.*),.*;', content)
+    if matches:
+        producers.append({
+            "name": project_name,
+            "topic": matches[0],
+            "type": "producer",
+            "file": file,
+            "service": service
+        })
+    return producers
+
+
+def replace_config_values(content, config_value_cache={}, service=''):
+    """
+    Remplacer les valeurs de configuration Spring par leur valeur
+    :param content: contenu du fichier
+    :param config_value_cache: cache des valeurs de configuration
+    :param service: nom du service pour restreindre la recherche des fichiers de configuration
+    :return: contenu du fichier avec les valeurs de configuration Spring remplacées
+    """
+    matches = re.findall(r'@Value.*{(.*)}.*\s+([a-zA-Z]+)[,;]$', content, re.MULTILINE | re.DOTALL | re.IGNORECASE)
+    if matches:
+        config_name = matches[0][0]
+        var_in_file = matches[0][1]
+        # Parcours des fichiers de configuration .properties pour récupérer la valeur de la variable de configuration
+        # appelée config_name
+        config_value = config_value_cache.get(config_name)
+        if not config_value:
+            for root, dirs, files in os.walk(f'./{service}'):
+                for file in files:
+                    if file.endswith('.properties'):
+                        with open(os.path.join(root, file), 'r') as f:
+                            config_file_content = f.read()
+                            matches = re.findall(rf'{config_name}=(.*)', config_file_content)
+                            if matches:
+                                config_value = matches[0]
+                                config_value_cache[config_name] = config_value
+                                print(
+                                    f'{BCOLORS.OKBLUE}Config value {config_name} found: {config_value} in file {os.path.join(root, file)} {BCOLORS.ENDC}')
+                                return content.replace(f'{var_in_file})', config_value)
+        else:
+            print(f'{BCOLORS.OKBLUE}Config value {config_name} found in cache: {config_value} {BCOLORS.ENDC}')
+            return content.replace(f'{var_in_file})', config_value)
+        # Remplacer la valeur de la variable de configuration par sa valeur
+        print(f"{BCOLORS.FAIL}Config value {config_name} not found. (might be out of scope){BCOLORS.ENDC}")
+    return content
+
+
 if __name__ == '__main__':
 
     # Générer un identifiant du run
@@ -76,8 +152,7 @@ if __name__ == '__main__':
 
     parser = argparse.ArgumentParser(description='Extract kafka producers from a github project')
     parser.add_argument('-p', '--project', metavar='project', type=str, help='github project to analyze')
-    parser.add_argument('-o', '--output', metavar='output', type=str, help='output file',
-                        default=f'./outputs/output-{run_id}.json')
+    parser.add_argument('-o', '--output', metavar='output', type=str, help='output file')
     args = parser.parse_args()
 
     # Récupérer le projet github passé en paramètre
@@ -93,31 +168,19 @@ if __name__ == '__main__':
     # Parcourir les fichiers du projet
     os.chdir(project_folder)
     producers = []
+    config_value_cache = {}
     for root, dirs, files in os.walk('.'):
         for file in files:
             if file.endswith('.java') or file.endswith('.kt') or file.endswith('.js') or file.endswith(
                     '.py') or file.endswith('.ts') or file.endswith('.go') or file.endswith('.cs'):
                 # Lire le fichier
                 with open(os.path.join(root, file), 'r') as f:
+                    service = root.split('\\')[1]
                     content = f.read()
-                    # print(f'{content}')
-                    # Extraire les connexions à un bus kafka
-                    matches = re.findall(r'topic', content)
-                    print(f'{content}') if matches else None
-                    # if matches:
-                    #     # Récupérer le nom du bus kafka et du topic
-                    #     kafka = re.findall(r'bootstrap.servers\s*=\s*"(.*)"', content)
-                    #     topic = re.findall(r'topic\s*=\s*"(.*)"', content)
-                    #     if kafka and topic:
-                    #         # Ajouter la connexion à la liste des connexions
-                    #         producer = {
-                    #             "name": project_name,
-                    #             "kafka": kafka[0],
-                    #             "topic": topic[0],
-                    #             "type": "producer"
-                    #         }
-                    #         producers.append(producer)
-                    #         print(f"Producer found in {os.path.join(root, file)}")
+                    producers_in_file = get_producers(content, file, project_name, service, config_value_cache)
+                    if len(producers_in_file) > 0:
+                        producers.append(producers_in_file)
+
     os.chdir('../..')
     print(f"{BCOLORS.OKGREEN}Project {project_name} analyzed{BCOLORS.ENDC}")
 
@@ -131,9 +194,4 @@ if __name__ == '__main__':
         print(f"{BCOLORS.OKBLUE}Folder ./outputs created{BCOLORS.ENDC}")
 
     # Ecrire les connexions dans un fichier json
-    if len(producers) == 0:
-        print(f"{BCOLORS.WARNING}No producers found{BCOLORS.ENDC}")
-        exit(0)
-    with open(output, 'w') as f:
-        json.dump(producers, f)
-        print(f"{BCOLORS.OKGREEN}Producers written in {output}{BCOLORS.ENDC}")
+    save_producers(producers, output)
