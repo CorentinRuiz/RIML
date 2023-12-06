@@ -100,7 +100,7 @@ def get_producers(content, file, project_name, service, config_value_cache=None)
     matches = re.findall(r'\.send\((.*),.*;', content)
     if matches:
         producers.append({
-            "name": project_name,
+            "project": project_name,
             "topic": matches[0],
             "type": "producer",
             "file": file,
@@ -185,7 +185,7 @@ if __name__ == '__main__':
     print(f"{BCOLORS.OKGREEN}Project {project_name} analyzed{BCOLORS.ENDC}")
 
     # Supprimer le projet
-    # delete_folder(project_name)
+    delete_folder(project_name)
 
     # Créer le dossier ./outputs s'il n'existe pas
     if not os.path.exists('./outputs'):
