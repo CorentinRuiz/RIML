@@ -23,7 +23,7 @@ def recherche_docker_compose(repo):
     return docker_compose_found, docker_compose_path
 
 def rechercher_depots(keywords, max_repos=100):
-    g = Github("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") 
+    g = Github("Token") 
     
     repos = g.search_repositories(query=f"{keywords} in:description", order='desc')[:max_repos]
 

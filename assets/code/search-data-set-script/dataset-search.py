@@ -30,7 +30,7 @@ def recherche_docker_compose_kafka(repo):
     return False
 
 def recherche_repos_github():
-    g = Github('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')
+    g = Github('Token')
 
     nombre_repos_a_rechercher = 1200
     nb_repos_trouves = 0

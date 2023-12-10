@@ -8,7 +8,7 @@ def get_repo_list(file_path):
     return repos
 
 def get_docker_compose_images(repo):
-    g = Github('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')  # Remplacez os.getenv('GITHUB_ACCESS_TOKEN') par votre token d'accès GitHub
+    g = Github('Mon token')  # Remplacez os.getenv('GITHUB_ACCESS_TOKEN') par votre token d'accès GitHub
 
     try:
         repository = g.get_repo(repo)

@@ -3,7 +3,7 @@ from github.GithubException import GithubException
 from collections import defaultdict
 
 # Votre token d'authentification GitHub
-token = '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'
+token = 'Mon Token'
 
 # Initialisez Github en utilisant votre token
 g = Github(token)
