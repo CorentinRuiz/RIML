@@ -1,1 +1,5 @@
 .idea
+projects
+outputs
+.env
+.vscode
