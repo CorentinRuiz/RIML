@@ -12,15 +12,14 @@ connexion est représentée par un objet de la forme :
     "type": "producer"
 }
 """
+import json
 import uuid
 import os
-import json
 import shutil
 import subprocess
-import re
 import stat
-import time
 import argparse
+import yaml
 from common.utils import BCOLORS
 
 
@@ -69,80 +68,26 @@ def clone_project(project_name):
     print(f"{BCOLORS.OKBLUE}Project {project_name} cloned{BCOLORS.ENDC}")
 
 
-def save_producers(producers_list, producers_output):
+def get_services(file, project):
+    docker_compose_config = yaml.safe_load(file)
+    services = docker_compose_config.get('services', {})
+    return list(services.keys())
+
+
+def save_microservices(microservices_list, microservices_output):
     """
-    Sauvegarder les producer kafka dans un fichier json
-    :param producers_list: liste des producer kafka
+    Ecrire les connexions dans un fichier json
+    :param producers_list: liste des connexions
     :param producers_output: fichier de sortie
     """
-    if len(producers_list) == 0:
-        print(f"{BCOLORS.WARNING}No producers found{BCOLORS.ENDC}")
-        exit(0)
-    with open(producers_output, 'w') as ofile:
-        json.dump(producers_list, ofile, indent=4)
-        print(f"{BCOLORS.OKGREEN}Producers written in {producers_output}{BCOLORS.ENDC}")
-
-
-def get_producers(content, file, project_name, service, config_value_cache=None):
-    """
-    Extraire les producer kafka d'un fichier
-    :param content: contenu du fichier
-    :param file: nom du fichier
-    :param project_name: nom du projet
-    :return: liste des producer kafka
-    """
-    # Remplacer les valeurs de configuration Spring par leur valeur
-    if config_value_cache is None:
-        config_value_cache = {}
-    content = replace_config_values(content, config_value_cache, service)
-
-    producers = []
-    matches = re.findall(r'\.send\((.*),.*;', content)
-    if matches:
-        producers.append({
-            "project": project_name,
-            "topic": matches[0],
-            "type": "producer",
-            "file": file,
-            "service": service
-        })
-    return producers
-
-
-def replace_config_values(content, config_value_cache={}, service=''):
-    """
-    Remplacer les valeurs de configuration Spring par leur valeur
-    :param content: contenu du fichier
-    :param config_value_cache: cache des valeurs de configuration
-    :param service: nom du service pour restreindre la recherche des fichiers de configuration
-    :return: contenu du fichier avec les valeurs de configuration Spring remplacées
-    """
-    matches = re.findall(r'@Value.*{(.*)}.*\s+([a-zA-Z]+)[,;]$', content, re.MULTILINE | re.DOTALL | re.IGNORECASE)
-    if matches:
-        config_name = matches[0][0]
-        var_in_file = matches[0][1]
-        # Parcours des fichiers de configuration .properties pour récupérer la valeur de la variable de configuration
-        # appelée config_name
-        config_value = config_value_cache.get(config_name)
-        if not config_value:
-            for root, dirs, files in os.walk(f'./{service}'):
-                for file in files:
-                    if file.endswith('.properties'):
-                        with open(os.path.join(root, file), 'r') as f:
-                            config_file_content = f.read()
-                            matches = re.findall(rf'{config_name}=(.*)', config_file_content)
-                            if matches:
-                                config_value = matches[0]
-                                config_value_cache[config_name] = config_value
-                                print(
-                                    f'{BCOLORS.OKBLUE}Config value {config_name} found: {config_value} in file {os.path.join(root, file)} {BCOLORS.ENDC}')
-                                return content.replace(f'{var_in_file})', config_value)
-        else:
-            print(f'{BCOLORS.OKBLUE}Config value {config_name} found in cache: {config_value} {BCOLORS.ENDC}')
-            return content.replace(f'{var_in_file})', config_value)
-        # Remplacer la valeur de la variable de configuration par sa valeur
-        print(f"{BCOLORS.FAIL}Config value {config_name} not found. (might be out of scope){BCOLORS.ENDC}")
-    return content
+    # Applatire les sous listes
+    microservices_list = [item for sublist in microservices_list for item in sublist]
+    # Supprimer les doublons
+    microservices_list = list(dict.fromkeys(microservices_list))
+    print(f"{BCOLORS.OKBLUE}Saving microservices...{BCOLORS.ENDC}")
+    with open(microservices_output, 'w') as f:
+        json.dump(microservices_list, f, indent=4)
+    print(f"{BCOLORS.OKBLUE}Microservices saved in {microservices_output}{BCOLORS.ENDC}")
 
 
 if __name__ == '__main__':
@@ -167,20 +112,15 @@ if __name__ == '__main__':
 
     # Parcourir les fichiers du projet
     os.chdir(project_folder)
-    producers = []
+    microservices = []
     config_value_cache = {}
     for root, dirs, files in os.walk('.'):
         for file in files:
-            if file.endswith('.java') or file.endswith('.kt') or file.endswith('.js') or file.endswith(
-                    '.py') or file.endswith('.ts') or file.endswith('.go') or file.endswith('.cs'):
+            if file.endswith('docker-compose.yml'):
                 # Lire le fichier
                 with open(os.path.join(root, file), 'r') as f:
-                    service = root.split('\\')[1]
-                    content = f.read()
-                    print(content)
-                    producers_in_file = get_producers(content, file, project_name, service, config_value_cache)
-                    if len(producers_in_file) > 0:
-                        producers.append(producers_in_file)
+                    services = get_services(f, project)
+                    microservices.append(services)
 
     os.chdir('../..')
     print(f"{BCOLORS.OKGREEN}Project {project_name} analyzed{BCOLORS.ENDC}")
@@ -195,4 +135,4 @@ if __name__ == '__main__':
         print(f"{BCOLORS.OKBLUE}Folder ./outputs created{BCOLORS.ENDC}")
 
     # Ecrire les connexions dans un fichier json
-    save_producers(producers, output)
+    save_microservices(microservices, output)
