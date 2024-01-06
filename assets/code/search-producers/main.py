@@ -159,7 +159,7 @@ if __name__ == '__main__':
     project = args.project
     project_name = project.split('/')[1]
     project_folder = f"./projects/{project_name}"
-    output = args.output if args.output else f'./outputs/{project_name}-{run_id}.json'
+    output = args.output if args.output else f'./outputs/{project_name}-{run_id}--search-producers.json'
     print(f"{BCOLORS.HEADER}Analyzing project {project}...{BCOLORS.ENDC}")
 
     # Cloner le projet
@@ -175,7 +175,7 @@ if __name__ == '__main__':
                     '.py') or file.endswith('.ts') or file.endswith('.go') or file.endswith('.cs'):
                 # Lire le fichier
                 with open(os.path.join(root, file), 'r') as f:
-                    service = root.split('\\')[1]
+                    service = root.split('/')[1]
                     content = f.read()
                     print(content)
                     producers_in_file = get_producers(content, file, project_name, service, config_value_cache)

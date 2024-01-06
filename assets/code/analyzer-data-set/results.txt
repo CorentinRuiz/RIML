@@ -1,0 +1,988 @@
+Nom du projet : Jerez007/Spring-Boot-Microservice
+- services : 11
+- producer : 1
+- consumer : 1
+Nom du projet : victoramsantos/netflix-backend
+- services : 11
+- producer : 1
+- consumer : 1
+Nom du projet : joaopcm/nodejs-kafka-microservices
+- services : 11
+- producer : 1
+- consumer : 1
+Nom du projet : JBRonaldHandiwinata/pek
+- services : 11
+- producer : 1
+- consumer : 1
+Nom du projet : Luisgustavom1/delivery-app
+- services : 11
+- producer : 1
+- consumer : 1
+Nom du projet : riccskn/spring-kafka
+- services : 11
+- producer : 1
+- consumer : 1
+Nom du projet : bhargrah/kafka-streams-microservices
+- services : 11
+- producer : 1
+- consumer : 1
+Nom du projet : lucasjellema/fontys-fall2022-microservices-messaging-kafka-dapr
+- services : 11
+- producer : 1
+- consumer : 1
+Nom du projet : cschaible/rust-microservices-kafka
+- services : 11
+- producer : 1
+- consumer : 1
+Nom du projet : iamlookod/nestjs-microservice-boilerplate
+- services : 11
+- producer : 1
+- consumer : 1
+Nom du projet : GabrielCC163/ignite-lab-01
+- services : 11
+- producer : 1
+- consumer : 1
+Nom du projet : andrewnguyen41/saga-nodejs-kafka
+- services : 11
+- producer : 1
+- consumer : 1
+Nom du projet : NurullahBaser/Spring-Boot-Microservices-Shopping
+- services : 11
+- producer : 1
+- consumer : 1
+Nom du projet : tsarenkotxt/microservices
+- services : 7
+- producer : 1
+- consumer : 1
+Nom du projet : brunosm16/node-kafka-certificate
+- services : 7
+- producer : 1
+- consumer : 1
+Nom du projet : untaljohanperez/spring-boot-kafka
+- services : 7
+- producer : 1
+- consumer : 5
+Nom du projet : fabogit/node-kafka-conduktor
+- services : 7
+- producer : 1
+- consumer : 5
+Nom du projet : fabapp/priceoffers
+- services : 7
+- producer : 1
+- consumer : 5
+Nom du projet : bbcCorp/py_microservices
+- services : 7
+- producer : 1
+- consumer : 5
+Nom du projet : Archi-Lab-FAE/fae-message-broker
+- services : 7
+- producer : 1
+- consumer : 5
+Nom du projet : alinxess/kafka_example
+- services : 7
+- producer : 1
+- consumer : 5
+Nom du projet : gthrm/telegram-bot-consumer
+- services : 7
+- producer : 1
+- consumer : 5
+Nom du projet : djarza/football-events
+- services : 7
+- producer : 1
+- consumer : 5
+Nom du projet : laurindo/simple-microservice-kafka-nodejs
+- services : 7
+- producer : 1
+- consumer : 5
+Nom du projet : eduardosdl/notification_microservice
+- services : 7
+- producer : 1
+- consumer : 5
+Nom du projet : rodrigorodrigues/microservices-design-patterns
+- services : 7
+- producer : 1
+- consumer : 5
+Nom du projet : xorde-microservices/kafka-mailgun
+- services : 7
+- producer : 1
+- consumer : 5
+Nom du projet : mariorobertobr/Rocketseat-GraphQL-Microservices
+- services : 7
+- producer : 1
+- consumer : 5
+Nom du projet : edersonlcaldatto/kafka-sales
+- services : 7
+- producer : 1
+- consumer : 3
+Nom du projet : erlandazakaria/nest-microservice
+- services : 7
+- producer : 1
+- consumer : 3
+Nom du projet : Ravikumar-Pothannagari/microservice-kafka-master
+- services : 7
+- producer : 1
+- consumer : 3
+Nom du projet : kaanaydemir/microservices-parent
+- services : 7
+- producer : 1
+- consumer : 3
+Nom du projet : pengnam/real-time-aircraft-visualization
+- services : 7
+- producer : 1
+- consumer : 3
+Nom du projet : WillReichl/udemy-dotnet-cqrs-kafka
+- services : 7
+- producer : 1
+- consumer : 3
+Nom du projet : jpbrab0/typescript-microservices
+- services : 7
+- producer : 1
+- consumer : 3
+Nom du projet : Tomerl101/event-driven-microservices
+- services : 7
+- producer : 1
+- consumer : 3
+Nom du projet : FraunhoferISST/diva
+- services : 7
+- producer : 1
+- consumer : 3
+Nom du projet : MathPelicer/CQRSKafkaMicroservice-Udemy
+- services : 7
+- producer : 1
+- consumer : 3
+Nom du projet : Muhammad-Ahmad-AI/nodejs-docker-kafka-microservice
+- services : 7
+- producer : 1
+- consumer : 3
+Nom du projet : mantzas/patron
+- services : 7
+- producer : 1
+- consumer : 3
+Nom du projet : tiago-wd/ms-poc
+- services : 7
+- producer : 1
+- consumer : 3
+Nom du projet : RaghavRoy145/KafkaGo
+- services : 7
+- producer : 1
+- consumer : 3
+Nom du projet : adityagarde/spring-bank-microservices-app
+- services : 7
+- producer : 1
+- consumer : 3
+Nom du projet : pradanadp/gold-digital-microservices
+- services : 7
+- producer : 1
+- consumer : 3
+Nom du projet : rakeshdr1/nest-kafka-grpc-activity-track
+- services : 7
+- producer : 1
+- consumer : 3
+Nom du projet : andrechristikan/ack-nestjs-boilerplate-kafka
+- services : 7
+- producer : 1
+- consumer : 3
+Nom du projet : RicardoJuanChecalla/MicroservicesCQRS-EventSourcingWithKafka
+- services : 7
+- producer : 1
+- consumer : 3
+Nom du projet : TamimHemat/Kafka_Project
+- services : 7
+- producer : 1
+- consumer : 3
+Nom du projet : barkhayot/food-microservice
+- services : 7
+- producer : 1
+- consumer : 3
+Nom du projet : mudiadamz/event-driven-microservice-example
+- services : 7
+- producer : 1
+- consumer : 3
+Nom du projet : mdnbras/micronaut_microservices_sample_api
+- services : 7
+- producer : 1
+- consumer : 3
+Nom du projet : vncs2012/Code-Challange-Microservice-kafka
+- services : 7
+- producer : 1
+- consumer : 3
+Nom du projet : netodeolino/ecommerce-dio
+- services : 7
+- producer : 1
+- consumer : 3
+Nom du projet : felpssc/food-ordering-kafka-poc
+- services : 7
+- producer : 1
+- consumer : 3
+Nom du projet : maxi-gkd/decoupling-microservices
+- services : 7
+- producer : 1
+- consumer : 3
+Nom du projet : evilself/microstart
+- services : 7
+- producer : 1
+- consumer : 3
+Nom du projet : PabloGolobaro/gRPC_PDF_Service
+- services : 7
+- producer : 1
+- consumer : 3
+Nom du projet : lensesio/lenses-topology-example
+- services : 7
+- producer : 1
+- consumer : 3
+Nom du projet : apresland/scala-microservices
+- services : 7
+- producer : 1
+- consumer : 3
+Nom du projet : saumitras/kafka-twitter-docker
+- services : 7
+- producer : 1
+- consumer : 3
+Nom du projet : VigneshbabuOfficial/microservice-kafka-java
+- services : 7
+- producer : 1
+- consumer : 3
+Nom du projet : nashtech-garage/yas
+- services : 7
+- producer : 1
+- consumer : 3
+Nom du projet : kozyura-aleksey/nestjs-app-microservice-architecture-with-kafka
+- services : 7
+- producer : 1
+- consumer : 3
+Nom du projet : hadasbro/microservices
+- services : 7
+- producer : 1
+- consumer : 3
+Nom du projet : elpapi42/reactive-microservices-with-kafka-python
+- services : 7
+- producer : 1
+- consumer : 3
+Nom du projet : rodrigorodrigues/microservices-design-patternsmoleculerjs/moleculer
+- services : 7
+- producer : 1
+- consumer : 3
+Nom du projet : vagnerbc/node-microservices
+- services : 7
+- producer : 1
+- consumer : 3
+Nom du projet : EnesElma/Event_Driven_Microservice_Project
+- services : 7
+- producer : 1
+- consumer : 3
+Nom du projet : shazin/cqrs-microservice-demo
+- services : 7
+- producer : 1
+- consumer : 1
+Nom du projet : eventeum/eventeum
+- services : 7
+- producer : 3
+- consumer : 1
+Nom du projet : 19EB/microservices-base-kafka
+- services : 7
+- producer : 3
+- consumer : 1
+Nom du projet : Miguel446/kafka-study
+- services : 7
+- producer : 3
+- consumer : 1
+Nom du projet : lmthongit98/microservices-demo
+- services : 7
+- producer : 3
+- consumer : 1
+Nom du projet : diego3g/microservices-base-decode
+- services : 7
+- producer : 3
+- consumer : 1
+Nom du projet : destbreso/nx-nestjs-kafka-microservices
+- services : 7
+- producer : 3
+- consumer : 1
+Nom du projet : seyidagha/MicroservicesDocker
+- services : 7
+- producer : 3
+- consumer : 1
+Nom du projet : maxime-agusti/nestjs-kafka-based-microservices
+- services : 7
+- producer : 3
+- consumer : 1
+Nom du projet : microservices-patterns/ftgo-application
+- services : 7
+- producer : 3
+- consumer : 1
+Nom du projet : h3ctor07/MicroservicesApp
+- services : 7
+- producer : 3
+- consumer : 1
+Nom du projet : aenesgur/springboot-microservice-boilerplate
+- services : 7
+- producer : 3
+- consumer : 1
+Nom du projet : okatsuo/kafka-prototype
+- services : 7
+- producer : 3
+- consumer : 1
+Nom du projet : pedroluiznogueira/medium-microservices-kafka
+- services : 7
+- producer : 3
+- consumer : 1
+Nom du projet : import-benjamin/kafka-stream-platform
+- services : 7
+- producer : 3
+- consumer : 1
+Nom du projet : mrduyu/payday
+- services : 7
+- producer : 3
+- consumer : 1
+Nom du projet : amogadasi/code_challenge_backend
+- services : 7
+- producer : 3
+- consumer : 1
+Nom du projet : dfernandezramos/KafkaNuget
+- services : 7
+- producer : 3
+- consumer : 1
+Nom du projet : fbcarpinato/nestjs-microservices
+- services : 7
+- producer : 3
+- consumer : 1
+Nom du projet : saadhaxxan/Nodejs-Docker-Kafka-Microservice
+- services : 7
+- producer : 3
+- consumer : 1
+Nom du projet : Chima-Anason/Java-Microservices-CQRS-Event-Sourcing-with-Kafka
+- services : 7
+- producer : 3
+- consumer : 1
+Nom du projet : pqkhoa99/jhipster-kafka
+- services : 7
+- producer : 3
+- consumer : 1
+Nom du projet : emeraldhieu/vinci
+- services : 7
+- producer : 3
+- consumer : 1
+Nom du projet : fouomene/poc-event-driven-microservice-edge-kafka-spring-cloud
+- services : 7
+- producer : 3
+- consumer : 1
+Nom du projet : FaissalElfid/Game_Simulator_Backend
+- services : 7
+- producer : 3
+- consumer : 1
+Nom du projet : SahakAv/coffee-shop
+- services : 7
+- producer : 3
+- consumer : 1
+Nom du projet : cdies/kafka
+- services : 7
+- producer : 3
+- consumer : 1
+Nom du projet : FelipeBelloDultra/kafka-microservice
+- services : 7
+- producer : 3
+- consumer : 1
+Nom du projet : marcel-renee/microservice-catalog
+- services : 7
+- producer : 3
+- consumer : 1
+Nom du projet : kamransadiq772/backendAssessment
+- services : 7
+- producer : 3
+- consumer : 1
+Nom du projet : aleesilva/ms-nestjs-kafka-test
+- services : 7
+- producer : 3
+- consumer : 1
+Nom du projet : kamilanindita/nestjs-microservice-kafka
+- services : 7
+- producer : 3
+- consumer : 1
+Nom du projet : cristiancasd/basic-kafka-node-docker
+- services : 7
+- producer : 3
+- consumer : 1
+Nom du projet : rise8-us/kafka-playground
+- services : 7
+- producer : 3
+- consumer : 1
+Nom du projet : alanjphillips/EventSourcingClusterClient
+- services : 7
+- producer : 3
+- consumer : 1
+Nom du projet : dsimonow/microanalyzerclient
+- services : 7
+- producer : 1
+- consumer : 1
+Nom du projet : MohosinMiah/apache-kafka-and-webhook-microservice
+- services : 7
+- producer : 1
+- consumer : 1
+Nom du projet : andresrodriguez55/rent-a-car-microservices
+- services : 7
+- producer : 1
+- consumer : 1
+Nom du projet : lgomezs/microservice-customer-kafka
+- services : 7
+- producer : 1
+- consumer : 1
+Nom du projet : MustafaFindik24/Spring-Boot-Kafka-Microservices
+- services : 7
+- producer : 1
+- consumer : 1
+Nom du projet : thiswebs4u/springboot-kafka-microservices
+- services : 7
+- producer : 1
+- consumer : 1
+Nom du projet : nguleduy/spring-boot-kafka
+- services : 7
+- producer : 1
+- consumer : 1
+Nom du projet : igmerwina/sample-microservices-app-springboot
+- services : 7
+- producer : 1
+- consumer : 1
+Nom du projet : manosbatsis/spring-cloud-user-management
+- services : 7
+- producer : 1
+- consumer : 1
+Nom du projet : hamidfarmani/online-store
+- services : 7
+- producer : 1
+- consumer : 1
+Nom du projet : Nasruddin/spring-kafka-integration
+- services : 7
+- producer : 1
+- consumer : 1
+Nom du projet : Mlfraga/lab-01
+- services : 7
+- producer : 1
+- consumer : 1
+Nom du projet : guicostaarantes/go-auth
+- services : 7
+- producer : 1
+- consumer : 1
+Nom du projet : dilowagner/zen-gorequeue
+- services : 7
+- producer : 1
+- consumer : 1
+Nom du projet : HakanOZDABAK/microservice-project
+- services : 7
+- producer : 1
+- consumer : 1
+Nom du projet : Calabacin/italianrestaurant
+- services : 7
+- producer : 1
+- consumer : 1
+Nom du projet : vinicfrancisco/microservices-kafka-pubsub
+- services : 7
+- producer : 1
+- consumer : 1
+Nom du projet : shyam0507/Hotel-Booking-MicroService
+- services : 7
+- producer : 1
+- consumer : 1
+Nom du projet : macc4/nestjs-clinic
+- services : 7
+- producer : 1
+- consumer : 1
+Nom du projet : Feruz666/gokafka
+- services : 7
+- producer : 1
+- consumer : 1
+Nom du projet : gopalsabhadiya/microservices-poc
+- services : 7
+- producer : 1
+- consumer : 1
+Nom du projet : alagiz/websockets-kafka-demo
+- services : 7
+- producer : 1
+- consumer : 1
+Nom du projet : joedayz/microservices-with-kafka
+- services : 7
+- producer : 1
+- consumer : 1
+Nom du projet : humb1t/spring_cloud_kafka_jwt
+- services : 7
+- producer : 1
+- consumer : 1
+Nom du projet : bagonboard/poc_kafka_microservices
+- services : 7
+- producer : 1
+- consumer : 1
+Nom du projet : iamhabbeboy/microservice-app
+- services : 7
+- producer : 1
+- consumer : 1
+Nom du projet : matherique/microservice-go
+- services : 7
+- producer : 1
+- consumer : 1
+Nom du projet : arrudacaio/nodekafka
+- services : 7
+- producer : 1
+- consumer : 1
+Nom du projet : diego3g/node-microservices-ddd
+- services : 7
+- producer : 1
+- consumer : 1
+Nom du projet : huelton/spring-boot-kafka
+- services : 7
+- producer : 1
+- consumer : 1
+Nom du projet : drubioa/demo-cqrs-kafka
+- services : 7
+- producer : 1
+- consumer : 1
+Nom du projet : bazucas/CQRS-Kafka-Dotnet7-Demo
+- services : 7
+- producer : 1
+- consumer : 1
+Nom du projet : outhanchazima/Python-Microservices-with-Apache-Kafka
+- services : 7
+- producer : 1
+- consumer : 1
+Nom du projet : Zyuzin-package/Kafka_Learn
+- services : 7
+- producer : 1
+- consumer : 1
+Nom du projet : zydnrbrn/spring-microservices
+- services : 7
+- producer : 1
+- consumer : 1
+Nom du projet : RAGAdox/BACKEND_IMAGINFOLIO
+- services : 7
+- producer : 1
+- consumer : 1
+Nom du projet : bobsk8/kafka-producer-consumer
+- services : 7
+- producer : 1
+- consumer : 1
+Nom du projet : aleksandarskrbic/payment-processing-system
+- services : 7
+- producer : 1
+- consumer : 1
+Nom du projet : jay1499/springboot_project
+- services : 7
+- producer : 1
+- consumer : 1
+Nom du projet : j4v1ng/offerskafka
+- services : 7
+- producer : 1
+- consumer : 1
+Nom du projet : FM-007/kafka-project
+- services : 7
+- producer : 1
+- consumer : 1
+Nom du projet : AMIS-Services/kafka-introduction-workshop
+- services : 7
+- producer : 1
+- consumer : 1
+Nom du projet : daniellvieira/kafkanode
+- services : 7
+- producer : 1
+- consumer : 1
+Nom du projet : casperboone/wdm-kafka-microservices
+- services : 7
+- producer : 1
+- consumer : 1
+Nom du projet : paulozy/ms-kafka-api
+- services : 7
+- producer : 1
+- consumer : 1
+Nom du projet : emirhanc/operatorservices
+- services : 7
+- producer : 1
+- consumer : 1
+Nom du projet : ENate/sp-microservices
+- services : 7
+- producer : 1
+- consumer : 1
+Nom du projet : aymenzitouni/microservices-kafka-docker
+- services : 7
+- producer : 1
+- consumer : 1
+Nom du projet : gbrlcustodio/overengineering
+- services : 7
+- producer : 1
+- consumer : 1
+Nom du projet : oskardudycz/GoldenEye
+- services : 7
+- producer : 1
+- consumer : 1
+Nom du projet : suadev/dotnet-core-microservices-kafka
+- services : 7
+- producer : 1
+- consumer : 1
+Nom du projet : streamthoughts/azkarra-streams
+- services : 7
+- producer : 1
+- consumer : 1
+Nom du projet : henriquebol/kafka-notifications
+- services : 7
+- producer : 1
+- consumer : 1
+Nom du projet : DevIsraelSantos/Microservice-with-Javascript-and-python
+- services : 7
+- producer : 1
+- consumer : 1
+Nom du projet : rakeshdr1/nest-kafka-activity-track
+- services : 7
+- producer : 1
+- consumer : 1
+Nom du projet : balajich/spring-cloud-session-4-inter-microservice-communication-async-kafka
+- services : 7
+- producer : 1
+- consumer : 1
+Nom du projet : DmytroChistiuk/kafka-microservices
+- services : 7
+- producer : 1
+- consumer : 1
+Nom du projet : mingoogle/blog-mingoogle-seed
+- services : 7
+- producer : 1
+- consumer : 1
+Nom du projet : SalehAhmadi/.Net_CQRS_Kafka_Demo
+- services : 7
+- producer : 1
+- consumer : 1
+Nom du projet : IsmailUlasUnal/spring-microservices-shopping
+- services : 7
+- producer : 1
+- consumer : 1
+Nom du projet : luizcalaca/node-kafka-microservices
+- services : 7
+- producer : 1
+- consumer : 1
+Nom du projet : Vini03-Alcantra/kafka-node-learn
+- services : 7
+- producer : 1
+- consumer : 1
+Nom du projet : sylleryum/kafka-microservices-with-saga
+- services : 7
+- producer : 1
+- consumer : 1
+Nom du projet : NHadi/Pos
+- services : 7
+- producer : 1
+- consumer : 1
+Nom du projet : hoangnhat2003/Ecommerce-Microservices
+- services : 7
+- producer : 1
+- consumer : 1
+Nom du projet : kimmi1206/springboot_microservice
+- services : 7
+- producer : 1
+- consumer : 1
+Nom du projet : WladOd/event-driven-microservices
+- services : 7
+- producer : 1
+- consumer : 1
+Nom du projet : biswasray/pzen-kai-back
+- services : 7
+- producer : 1
+- consumer : 1
+Nom du projet : kumarabhishek0809/microservices-demo
+- services : 7
+- producer : 1
+- consumer : 1
+Nom du projet : System73/tamarco-kafka
+- services : 7
+- producer : 1
+- consumer : 1
+Nom du projet : rezahazegh/kafka-nestjs
+- services : 7
+- producer : 1
+- consumer : 1
+Nom du projet : RedJocker/DioNodeKafkaRestaurant
+- services : 7
+- producer : 1
+- consumer : 1
+Nom du projet : amohammadi1989/microservice-eventsourcing-kafka
+- services : 7
+- producer : 1
+- consumer : 1
+Nom du projet : denis554/microservice-kafka
+- services : 7
+- producer : 1
+- consumer : 1
+Nom du projet : pedroluiznogueira/kafka-consumer
+- services : 7
+- producer : 1
+- consumer : 1
+Nom du projet : Hogwai/kafka-microservices
+- services : 7
+- producer : 1
+- consumer : 1
+Nom du projet : IhorPetr/SM-Project
+- services : 7
+- producer : 1
+- consumer : 1
+Nom du projet : piomin/sample-spring-kafka-microservices
+- services : 7
+- producer : 1
+- consumer : 1
+Nom du projet : michalzeman/spring-reactive-microservices
+- services : 7
+- producer : 1
+- consumer : 1
+Nom du projet : lucasnscr/Ecommerce-Kafka-Spring
+- services : 7
+- producer : 1
+- consumer : 1
+Nom du projet : bilelibrahim/microservices-reservation
+- services : 7
+- producer : 1
+- consumer : 1
+Nom du projet : duhowise/NET-Microservices-CQRS-Event-Sourcing-with-Kafka
+- services : 7
+- producer : 1
+- consumer : 1
+Nom du projet : henricker/mailer-microservice
+- services : 7
+- producer : 1
+- consumer : 1
+Nom du projet : bastman/codechallenge-watermark-service-kafka
+- services : 7
+- producer : 1
+- consumer : 1
+Nom du projet : ZaTribune/spring-kafka-microservices
+- services : 7
+- producer : 3
+- consumer : 1
+Nom du projet : gui-far/graphql_prisma_kafka_microservices
+- services : 7
+- producer : 3
+- consumer : 1
+Nom du projet : moleculerjs/moleculer-template-project-typescript
+- services : 7
+- producer : 3
+- consumer : 1
+Nom du projet : smartcat-labs/microservices-with-kafkarealtech2000/falconTest
+- services : 7
+- producer : 3
+- consumer : 1
+Nom du projet : TecladistaProd/Microservice-in-node
+- services : 7
+- producer : 3
+- consumer : 1
+Nom du projet : benwilcock/spring-cloud-stream-demo
+- services : 7
+- producer : 3
+- consumer : 1
+Nom du projet : lucasjellema/fontys-2022-microservices-kafka-dapr
+- services : 7
+- producer : 3
+- consumer : 1
+Nom du projet : JonatasMSantos/nestjs-kafka-starter
+- services : 7
+- producer : 3
+- consumer : 1
+Nom du projet : raloop/microservices-new
+- services : 7
+- producer : 3
+- consumer : 1
+Nom du projet : Renan04lima/e-commerce-microservice
+- services : 7
+- producer : 3
+- consumer : 1
+Nom du projet : ricall/KafkaSaga
+- services : 7
+- producer : 3
+- consumer : 1
+Nom du projet : ewolff/microservice-kafka
+- services : 7
+- producer : 3
+- consumer : 1
+Nom du projet : gschmutz/event-driven-microservices-demo
+- services : 7
+- producer : 3
+- consumer : 1
+Nom du projet : pevgen/mskafkatest
+- services : 7
+- producer : 3
+- consumer : 1
+Nom du projet : elite-se/distributed-systems-cloud-2020
+- services : 7
+- producer : 3
+- consumer : 1
+Nom du projet : ReuvenEliezer/presightai
+- services : 7
+- producer : 3
+- consumer : 1
+Nom du projet : muratkistan/springboot-kafka-docker-microservices
+- services : 7
+- producer : 3
+- consumer : 1
+Nom du projet : SaiUpadhyayula/spring-boot-microservices
+- services : 7
+- producer : 3
+- consumer : 1
+Nom du projet : wenderpmachado/microservice-nestjs-kafka
+- services : 7
+- producer : 3
+- consumer : 1
+Nom du projet : PhanDungTri/nestjs-graphql-microservices
+- services : 7
+- producer : 3
+- consumer : 1
+Nom du projet : junaidsahmed/automated-ticketing-system
+- services : 7
+- producer : 3
+- consumer : 1
+Nom du projet : un4ckn0wl3z/NESTJS-KAFKA-CQRS
+- services : 7
+- producer : 3
+- consumer : 1
+Nom du projet : toledompm/nestjs-kafka-microservice
+- services : 7
+- producer : 3
+- consumer : 1
+Nom du projet : wayter95/ignite-lab-01
+- services : 7
+- producer : 3
+- consumer : 1
+Nom du projet : joeltadeu/bank-account
+- services : 7
+- producer : 3
+- consumer : 1
+Nom du projet : EmersonLopes/spring-boot-ecommerce
+- services : 7
+- producer : 3
+- consumer : 1
+Nom du projet : davideicardi/es4kafka
+- services : 7
+- producer : 3
+- consumer : 1
+Nom du projet : Leticia-23/adoptions-kafka
+- services : 7
+- producer : 3
+- consumer : 1
+Nom du projet : samuel-esp/kafka-example
+- services : 7
+- producer : 3
+- consumer : 1
+Nom du projet : denizumutdereli/tx-log-tailling-with-debezium
+- services : 7
+- producer : 3
+- consumer : 1
+Nom du projet : sahithimedikonda/DriverSuggestion
+- services : 7
+- producer : 3
+- consumer : 1
+Nom du projet : nsburrows/microservice-kafka-cluster
+- services : 7
+- producer : 3
+- consumer : 1
+Nom du projet : andersonef/kafka-ms-kafka
+- services : 7
+- producer : 3
+- consumer : 1
+Nom du projet : vhnegrisoli/comics-encyclopedia-api
+- services : 7
+- producer : 3
+- consumer : 1
+Nom du projet : keshavkakarla/microservice-kafka-master
+- services : 7
+- producer : 3
+- consumer : 1
+Nom du projet : kazokmr/shopping-analytics-service
+- services : 7
+- producer : 3
+- consumer : 1
+Nom du projet : CiscoTestAutomation/xpresso
+- services : 7
+- producer : 3
+- consumer : 1
+Nom du projet : mboldysh/spring-cloud-stream
+- services : 7
+- producer : 3
+- consumer : 1
+Nom du projet : pedroluiznogueira/kafka-producer
+- services : 7
+- producer : 3
+- consumer : 1
+Nom du projet : cristinanegrean/spring-cloud-stream-kafka
+- services : 7
+- producer : 3
+- consumer : 1
+Nom du projet : mgonzalez12/sample-spring-kafka-microservices
+- services : 7
+- producer : 3
+- consumer : 1
+Nom du projet : bolmstedt/boozelist
+- services : 7
+- producer : 3
+- consumer : 1
+Nom du projet : SerkanKutlu/.NET_CORE_MICROSERVICES
+- services : 7
+- producer : 3
+- consumer : 1
+Nom du projet : marianobrc/fastapi-kafka
+- services : 7
+- producer : 3
+- consumer : 1
+Nom du projet : apssouza22/java-microservice
+- services : 7
+- producer : 3
+- consumer : 1
+Nom du projet : nc1z/demo-nestjs-kafka-microservices
+- services : 7
+- producer : 3
+- consumer : 1
+Nom du projet : aristeu-garcia/kafka
+- services : 7
+- producer : 3
+- consumer : 1
+Nom du projet : ivansimplicio/tgl-ms-emails-express
+- services : 7
+- producer : 3
+- consumer : 1
+Nom du projet : melsicon/kafka-microservices
+- services : 7
+- producer : 3
+- consumer : 1
+Nom du projet : asc-lab/micronaut-microservices-poc
+- services : 7
+- producer : 3
+- consumer : 1
+Nom du projet : AleksK1NG/Go-Kafka-gRPC-MongoDB-microservice
+- services : 7
+- producer : 3
+- consumer : 1
+Nom du projet : hdimitrieski/e-shop
+- services : 7
+- producer : 3
+- consumer : 1
+Nom du projet : srigumm/eCupcakesFactoryOnContainers
+- services : 7
+- producer : 3
+- consumer : 1
+Nom du projet : jmcanterafonseca/microservices-challenge
+- services : 7
+- producer : 3
+- consumer : 1
+Nom du projet : emre-kahraman/Ecommerce
+- services : 7
+- producer : 3
+- consumer : 1
+Nom du projet : irath-sumi/Pub_Sub_UsingKafka
+- services : 7
+- producer : 3
+- consumer : 1
+Nom du projet : rauf22/Nestjs-Microservices-Kafka
+- services : 7
+- producer : 3
+- consumer : 1
+Nom du projet : ENate/kafka-mstreams
+- services : 7
+- producer : 3
+- consumer : 1
+Nom du projet : josephdsbr/node-kafka-microservice
+- services : 7
+- producer : 3
+- consumer : 1
+Nom du projet : loanmatteusz/microservices-with-kafka
+- services : 7
+- producer : 3
+- consumer : 1

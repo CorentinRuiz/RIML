@@ -69,9 +69,11 @@ def clone_project(project_name):
 
 
 def get_services(file, project):
+    keys_to_remove = ['zookeeper', 'kafka', 'mongo', 'broker', 'redis', 'db', 'database','postgres','grafana','cassandra','keycloak']
+
     docker_compose_config = yaml.safe_load(file)
     services = docker_compose_config.get('services', {})
-    return list(services.keys())
+    return [key for key in services.keys() if key not in keys_to_remove]
 
 
 def save_microservices(microservices_list, microservices_output):
@@ -104,7 +106,7 @@ if __name__ == '__main__':
     project = args.project
     project_name = project.split('/')[1]
     project_folder = f"./projects/{project_name}"
-    output = args.output if args.output else f'./outputs/{project_name}-{run_id}.json'
+    output = args.output if args.output else f'./outputs/{project_name}-{run_id}--search-microservices.json'
     print(f"{BCOLORS.HEADER}Analyzing project {project}...{BCOLORS.ENDC}")
 
     # Cloner le projet

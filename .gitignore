@@ -3,3 +3,4 @@ projects
 outputs
 .env
 .vscode
+__pycache__
