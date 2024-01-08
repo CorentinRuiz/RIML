@@ -19,3 +19,5 @@ do
 done
 
 python3 analyze-project-data.py $1
+
+rm -rf ./outputs

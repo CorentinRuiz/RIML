@@ -6,6 +6,7 @@ if [ ! -f "$1" ]; then
 fi
 
 while IFS= read -r nom || [ -n "$nom" ]; do
+    echo "Analyse du projet $nom ..."
     if [ -n "$nom" ]; then
         ./analyze-data-one-project.sh "$nom"
     fi
