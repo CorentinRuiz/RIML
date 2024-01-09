@@ -69,11 +69,20 @@ def clone_project(project_name):
 
 
 def get_services(file, project):
-    keys_to_remove = ['zookeeper', 'kafka', 'mongo', 'broker', 'redis', 'db', 'database','postgres','grafana','cassandra','keycloak']
+    keys_to_remove = ['zookeeper', 'kafka', 'mongo', 'broker', 'redis', 'database', 'postgres', 'grafana', 'cassandra', 'keycloak', 'monitoring', 'prometheus','elasticsearch', 'elastic-search']
+
+    terms_to_check = ['db', 'database', 'kafka', 'redis', 'mongo', 'mongodb','grafana','kibana','cassandra','keycloak','monitoring','prometheus','zookeeper','broker','rabbitmq','webapp'] 
 
     docker_compose_config = yaml.safe_load(file)
     services = docker_compose_config.get('services', {})
-    return [key for key in services.keys() if key not in keys_to_remove]
+    
+    def should_remove(key):
+        return any(term in key for term in terms_to_check) or key in keys_to_remove
+    
+    filtered_keys = [key for key in services.keys() if not should_remove(key)]
+    
+    return filtered_keys
+
 
 
 def save_microservices(microservices_list, microservices_output):
