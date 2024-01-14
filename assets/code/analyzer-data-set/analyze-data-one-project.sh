@@ -3,6 +3,8 @@
 # Chemins vers les dossiers contenant les scripts Python
 folders=("../search-consumers" "../search-producers" "../search-microservices")
 
+project_name=$(echo "$1" | cut -d "/" -f 2)
+
 output_directories=()
 
 for folder in "${folders[@]}"
@@ -16,6 +18,12 @@ do
             python3 "$script" -p $1
         done
     fi
+
 done
+
+absolute_path_outputs=$(readlink -f "./outputs")
+absolute_path_project=$(readlink -f "./projects/$project_name")
+
+python3 ../search-topic/main.py $absolute_path_outputs $absolute_path_project 
 
 python3 analyze-project-data.py $1

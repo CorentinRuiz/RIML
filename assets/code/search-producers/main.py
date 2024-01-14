@@ -177,7 +177,6 @@ if __name__ == '__main__':
                 with open(os.path.join(root, file), 'r') as f:
                     service = root.split('/')[1]
                     content = f.read()
-                    print(content)
                     producers_in_file = get_producers(content, file, project_name, service, config_value_cache)
                     if len(producers_in_file) > 0:
                         producers.append(producers_in_file)
