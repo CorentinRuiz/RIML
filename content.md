@@ -22,7 +22,7 @@ date:   2023-11
 
 ## Authors
 
-We are four students in M2 or in last year of Polytech' Nice-Sophia specialized in Software Architecture :
+We are four students in final year of Polytech' Nice-Sophia specialized in Software Architecture :
 
 * Thomas GUIOT &lt;thomas.guiot@etu.unice.fr&gt;
 * Antony MARTIN &lt;antony.martin@etu.unice.fr&gt;
@@ -32,30 +32,46 @@ We are four students in M2 or in last year of Polytech' Nice-Sophia specialized 
 
 ## I. Research context /Project
 
-Préciser ici votre contexte et Pourquoi il est intéressant. **
+Les architectures microservices ont récemment émergé comme une approche dans le domaine du développement logiciel, offrant une alternative décentralisée aux structures monolithiques. Cette transition vers les microservices est motivée par le désir d'accroître la modularité, la flexibilité et la scalabilité des applications. Les projets open source embrassent de plus en plus ces architectures distribuées, reconnaissant leur potentiel à répondre aux exigences croissantes de systèmes logiciels complexes.
 
+L'un des pattern les plus populaires intégrées aux architectures microservices est l'event-sourcing. Cette pratique de conception propose un modèle où chaque modification de l'état d'une application est enregistrée sous forme d'événement immuable. L'event-sourcing offre une traçabilité granulaire des changements, facilitant la reconstitution de l'état d'une application à n'importe quel moment. Dans le contexte des microservices, cette approche peut renforcer la cohérence des données dans des environnements distribués, améliorant ainsi la résilience et la gestion des transactions.
+
+Une intégration réussie de l'event-sourcing dans les architectures microservices nécessite une bonne compréhension des échanges entre les services. L'adoption croissante de l'event-sourcing dans des projets open source souligne l'importance de cette intégration et pose des questions cruciales sur sa pertinence et son efficacité dans ce contexte spécifique.
+
+En analysant les caractéristiques de l'intégration de l'event-sourcing, il devient possible d'identifier la complexité d'apprentissage associée à chaque projet. Cette évaluation permettra de catégoriser les projets en fonction de leurs approches et visions spécifiques de l'event-sourcing, contribuant ainsi à définir des modèles d'implémentation et à se renseigner sur les meilleures pratiques.
+
+Par ailleurs, l'évaluation de la pertinence de l'implémentation de l'event-sourcing dans les projets open source en microservices offre une opportunité significative d'identification de cas d'utilisation exemplaires et d'approches novatrices. Ces exemples pourraient servir de références inspirantes pour d'autres développeurs et équipes de projet, favorisant ainsi la diffusion de bonnes pratiques et contribuant à l'amélioration continue de la qualité logicielle au sein de la communauté open source.
 
 ## II. Observations/General question
 
-1. Commencez par formuler une question sur quelque chose que vous observez ou constatez ou encore une idée émergente. 
+Notre sujet est motivé par la question suivante.
+
+> Les projets open-source implémentés en micro-services sont-ils de bons candidats pour apprendre les principes des architectures micro-services ?
+
+### Sous-question
+Nous avons choisi de restreindre ce sujet à la question suivante.
+
+> Comment les projets open source, adoptant l'architecture microservices et intégrant l'event-sourcing, parviennent-ils à garantir la cohérence des données dans des environnements distribués ?
     
-2. Préciser pourquoi cette question est intéressante de votre point de vue.
+### Justification
 
-Attention pour répondre à cette question, vous devrez être capable d'émettre des hypothèses vérifiables, de quantifier vos réponses, ...
-
-     :bulb: Cette première étape nécessite beaucoup de réflexion pour définir la bonne question qui permet de diriger la suite de vos travaux.
+Cette question émerge de l'observation de l'utilisation conjointe des architectures microservices et de l'event-sourcing dans les projets open source. L'intérêt réside dans la nécessité de comprendre comment ces deux concepts interagissent pour assurer la cohérence des données dans des systèmes distribués. Cette compréhension est importante pour les développeurs, car elle permettra d'identifier des bonnes pratiques et de définir des modèles d'implémentation efficaces.
 
 ## III. Information gathering
 
-Préciser vos zones de recherches en fonction de votre projet, les informations dont vous disposez, ... 
-
-Voici quelques pistes : 
-
-1. les articles ou documents utiles à votre projet 
-2. les outils que vous souhaitez utiliser
-3. les jeux de données/codes que vous allez utiliser, pourquoi ceux-ci, ...
-
-     :bulb: Cette étape est fortement liée à la suivante. Vous ne pouvez émettre d'hypothèses à vérifier que si vous avez les informations. inversement, vous cherchez à recueillir des informations en fonction de vos hypothèses. 
+1. **Scripts Python pour l'Exploration des Projets :**
+   - Présentation du script de sélection des projets open source.
+     - Critères de pertinence : Présence de Kafka dans un fichier Docker Compose.
+   - Détails sur la taille de l'échantillon de projets sélectionnés.
+   - Justification des critères de sélection pour garantir la représentativité.
+   - Explication du processus de récupération des projets via l'API GitHub.
+2. **Script d'Analyse des Communications avec Kafka :**
+   - Description du script d'exploration des fichiers des projets sélectionnés.
+     - Méthodologie : Recherche des lignes pertinentes en Python ou Java indiquant la production ou la consommation d'événements dans le bus (Kafka).
+   - Présentation des choix techniques et des bibliothèques Python utilisées.
+3. **Limites et Considérations :**
+   - Mise en évidence des limites potentielles liées à la méthodologie d'échantillonnage et aux choix technologiques.
+   - Discussion sur la représentativité des résultats obtenus.
  
 ## IV. Hypothesis & Experiences
 
