@@ -32,11 +32,11 @@ app.layout = html.Div(children=[
     
     html.Div([
         html.Div([
-            html.H4("Number of producer", style={'color': 'white'}),
+            html.H4("Number of producers", style={'color': 'white'}),
             html.Div(data["producers_number"], style={'font-size': '36px', 'font-weight': 'bold', 'color': 'white'}),
         ], style={'background-color': '#34495e', 'padding': '20px', 'border-radius': '10px', 'text-align': 'center'}),
         html.Div([
-            html.H4("Number of consumer", style={'color': 'white'}),
+            html.H4("Number of consumers", style={'color': 'white'}),
             html.Div(data["consumers_number"], style={'font-size': '36px', 'font-weight': 'bold', 'color': 'white'}),
         ], style={'background-color': '#34495e', 'padding': '20px', 'border-radius': '10px', 'text-align': 'center'}),
         html.Div([
@@ -73,17 +73,18 @@ app.layout = html.Div(children=[
             )
         }
     ),
-    dcc.Graph(
-        id='Topics-diversity',
-        figure={
-            'data': [
-                go.Bar(x=[topics_diversity],y=["Topics Diversity"], orientation='h')
-            ],
-            'layout': go.Layout(
-                title='Topics Diversity',
-            )
-        }),
 
+    html.H2("Topics diversity"),
+
+    html.Div([
+        html.P(round(topics_diversity*10)/10, style={'margin-left': '40px', 'font-size': '50px', 'font-weight': 'bold'}),
+        html.P("topic(s)", style={'position': 'relative', 'top': '30px', 'left': '10px', 'font-size': '25px'}),
+        html.Hr(style={'height': '200px', 'background': 'white', 'position': 'relative', 'top': '5px', 'left': '-40px', 'transform': 'rotate(65deg)'}),
+        html.Div([
+            'for',
+            html.Div(data['services_number'], style={'font-size': '45px', 'margin': '0 10px'}),
+            "service(s)"], style={'left': '-70px', 'top': '40px', 'position': 'relative', 'display': 'flex', 'align-items': 'center', 'font-size': '15px'}),
+    ], style={'width': '300px', 'display': 'flex', 'justify-content': 'center', 'background': 'rgb(52, 73, 94)', 'color': 'white', 'border-radius': '10px'}),
 ])
 
 if __name__ == '__main__':

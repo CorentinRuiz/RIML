@@ -24,7 +24,7 @@ done
 absolute_path_outputs=$(readlink -f "./outputs")
 absolute_path_project=$(readlink -f "./projects/$project_name")
 
-python3 ../search-topic/main.py $absolute_path_outputs $absolute_path_project 
+python3 ../search-topic/main.py "$absolute_path_outputs" "$absolute_path_project" 
 
 python3 analyze-project-data.py $1
 
