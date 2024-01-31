@@ -18,11 +18,34 @@ date:   2023-11
 
 ---
 
+---
+# TODO: Supprimer ce bandeau avant le rendu
+
+Critères d'évaluation :
+- Présentation des résultats
+- Analyse des résultats et commentaires
+- Lien avec les hypothèses
+- Si nécessaires, préciser les limites
+- Recul et Pertinence des remarques
+- Retour sur vos contributions
+- Perspectives
+- Format : Structure, forme, ...
+- Contexte dont la motivation
+- Question générale : Formulation, intérêt, limites éventuelles.
+- Quelle est votre base d'information
+- Quelles sous-questions et hypothèses
+- Quelles expérimentations, démarches choisies pour vérifier ou non vos hypothèses, justifications.
+- Quels outils sont utilisés ?
+- Justification des choix
+- Résultats
+- Conclusion
+---
+
 **_février 2024_**
 
 ## Authors
 
-We are four students in final year of Polytech' Nice-Sophia specialized in Software Architecture :
+We are four students in final year of Polytech Nice-Sophia specialized in Software Architecture :
 
 * Thomas GUIOT &lt;thomas.guiot@etu.unice.fr&gt;
 * Antony MARTIN &lt;antony.martin@etu.unice.fr&gt;
@@ -53,12 +76,14 @@ Nous avons choisi de restreindre ce sujet à la question suivante.
 
 > Comment les projets open source, adoptant l'architecture microservices et intégrant l'event-sourcing, parviennent-ils à garantir la cohérence des données dans des environnements distribués ?
     
+TODO: Parler de la question CQRS et son lien avec le sujet
 ### Justification
 
-Cette question émerge de l'observation de l'utilisation conjointe des architectures microservices et de l'event-sourcing dans les projets open source. L'intérêt réside dans la nécessité de comprendre comment ces deux concepts interagissent pour assurer la cohérence des données dans des systèmes distribués. Cette compréhension est importante pour les développeurs, car elle permettra d'identifier des bonnes pratiques et de définir des modèles d'implémentation efficaces.
+Cette question découle de l'utilisation conjointe des architectures microservices et de l'event-sourcing dans les projets open source. L'intérêt réside dans le besoin de comprendre comment ces deux concepts interagissent pour assurer la cohérence des données dans des systèmes distribués. Cette compréhension est importante pour les développeurs, car elle permettra d'identifier des bonnes pratiques et de définir des modèles d'implémentation efficaces.
 
 ## III. Information gathering
 
+---
 1. **Scripts Python pour l'Exploration des Projets :**
    - Présentation du script de sélection des projets open source.
      - Critères de pertinence : Présence de Kafka dans un fichier Docker Compose.
@@ -67,25 +92,36 @@ Cette question émerge de l'observation de l'utilisation conjointe des architect
    - Explication du processus de récupération des projets via l'API GitHub.
 2. **Script d'Analyse des Communications avec Kafka :**
    - Description du script d'exploration des fichiers des projets sélectionnés.
-     - Méthodologie : Recherche des lignes pertinentes en Python ou Java indiquant la production ou la consommation d'événements dans le bus (Kafka).
+     - Méthodologie : Recherche des lignes pertinentes en Java indiquant la production ou la consommation d'événements dans le bus (Kafka).
    - Présentation des choix techniques et des bibliothèques Python utilisées.
 3. **Limites et Considérations :**
    - Mise en évidence des limites potentielles liées à la méthodologie d'échantillonnage et aux choix technologiques.
    - Discussion sur la représentativité des résultats obtenus.
+---
+### Exploration des projets
+La première tâche est de constituer une base de projets sur lesquels effectuer nos expériences. Pour cela, nous avons
+rédigé des scripts Python utilisant l'API GitHub afin d'identifier des projets qui pourraient nous correspondre. Un
+projet éligible est un projet dont les services sont renseignés dans un fichier Docker Compose. Pour pouvoir répondre à
+la sous-question, nous souhaitons aussi que Kafka soit présent dans le projet et donc rescencé dans le Docker Compose.
+
+En appliquant ces critères, nous avons trouvé XXXXXXXXXX projets principalement écrits en Java et Python.
+
+Par la suite, nous nous sommes concentrés sur un sous-ensemble de l'échantillon initial. Nous avons ainsi éliminé les
+projets trop simples. Un projet trop simple est un projet XXXXXXXXXX.
  
 ## IV. Hypothesis & Experiences
 
+---
 1. Il s'agit ici d'**énoncer sous forme d'hypothèses** ce que vous allez chercher à démontrer. Vous devez définir vos hypothèses de façon à pouvoir les _mesurer/vérifier facilement._ Bien sûr, votre hypothèse devrait être construite de manière à _vous aider à répondre à votre question initiale_. Explicitez ces différents points.
 2. Vous **explicitez les expérimentations que vous allez mener** pour vérifier si vos hypothèses sont vraies ou fausses. Il y a forcément des choix, des limites, explicitez-les.
 
-     :bulb: Structurez cette partie à votre convenance : 
-     Par exemples : 
-        Pour Hypothèse 1 => 
-            Nous ferons les Expériences suivantes pour la démontrer
-        Pour Hypothèse 2 => Expériences 
-        
-        ou Vous présentez l'ensemble des hypothèses puis vous expliquer comment les expériences prévues permettront de démontrer vos hypothèses.
+:bulb: Structurez cette partie à votre convenance:  
+Par exemples :  
+- Pour Hypothèse 1 => Nous ferons les Expériences suivantes pour la démontrer  
+- Pour Hypothèse 2 => Expériences ou Vous présentez l'ensemble des hypothèses puis vous expliquer comment les expériences prévues permettront de démontrer vos hypothèses.
+---
 
+Nous avons choisi de catégoriser les projets afin de mettre
 
 ## V. Result Analysis and Conclusion
 
@@ -94,6 +130,7 @@ Cette question émerge de l'observation de l'utilisation conjointe des architect
 3. Construction d’une conclusion 
 
      :bulb:  Vos résultats et donc votre analyse sont nécessairement limités. Préciser bien ces limites : par exemple, jeux de données insuffisants, analyse réduite à quelques critères, dépendance aux projets analysés, ...
+4. On peut dire que certaines metriques sont pas forcément intéressantes
 
 ## VI. Tools \(facultatif\)
 
