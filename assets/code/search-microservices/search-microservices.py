@@ -69,9 +69,12 @@ def clone_project(project_name):
 
 
 def get_services(file, project):
-    keys_to_remove = ['zookeeper', 'kafka', 'mongo', 'broker', 'redis', 'database', 'postgres', 'grafana', 'cassandra', 'keycloak', 'monitoring', 'prometheus','elasticsearch', 'elastic-search']
+    keys_to_remove = ['zookeeper', 'kafka', 'mongo', 'broker', 'redis', 'database', 'postgres', 'grafana', 'cassandra', 'keycloak', 'monitoring', 'prometheus','elasticsearch', 'elastic-search','apache','api-gateway']
 
-    terms_to_check = ['db', 'database', 'kafka', 'redis', 'mongo', 'mongodb','grafana','kibana','cassandra','keycloak','monitoring','prometheus','zookeeper','broker','rabbitmq','webapp'] 
+    terms_to_check = ['db', 'database', 'kafka', 'redis', 'mongo', 'mongodb','grafana','kibana','cassandra',
+                      'keycloak','monitoring','prometheus','zookeeper','broker','rabbitmq','webapp', 'apache', 
+                      'postgres','mysql', 'config', 'zipkin', 'discovery','jaeger','elasticsearch','elastic-search','otel-collector'
+                      ,'nginx','apm-server', 'control-center','schema','gateway','kafdrop','monitor']
 
     docker_compose_config = yaml.safe_load(file)
     services = docker_compose_config.get('services', {})

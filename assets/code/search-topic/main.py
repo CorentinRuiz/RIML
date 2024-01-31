@@ -19,17 +19,19 @@ def open_json_file(chemin):
     except json.JSONDecodeError:
         print(f"Erreur de décodage JSON dans le fichier {chemin}. Vérifiez le format JSON.")
         return None
-    
+
 def analyze_outputs(datas):
     results = []
     pattern = re.compile(r'\([^)]*\)')
 
     for data in datas:
         for sub_data in data:
-            match = pattern.search(sub_data['topic'])
-            if not match:
-                cleaned_topic = delete_special_car(sub_data['topic'])
-                results.append(cleaned_topic)
+            if sub_data['topic'] != 'No topic name found':
+                match = pattern.search(sub_data['topic'])
+                if not match:
+                    cleaned_topic = delete_special_car(sub_data['topic'])
+                    results.append(cleaned_topic)
+                
     return results
 
 def find_other_topics(pathToProject):
@@ -41,15 +43,21 @@ def find_other_topics(pathToProject):
                 file_path = os.path.join(dir, file)
                 try:
                     with open(file_path, 'r') as f:
-                        content = f.read()
-                        
-                        matches = re.findall(r'kafka\.topic\.[\w.-]+', content)
-                        results.extend(matches)
+                        lines = f.readlines()
+                        for line in lines:
+                            matches = re.findall(r'kafka\.topic\.[\w.-]+=["\']?([^"\']+)', line)
+                            for match in matches:
+                                if match:
+                                    if match == 'kafka.topic.name':
+                                        kafka_topic_name_value = re.search(r'kafka\.topic\.name=["\']?([^"\']+)', line)
+                                        if kafka_topic_name_value:
+                                            results.append(kafka_topic_name_value.group(1).strip())
+                                    else:
+                                        results.append(match.strip())
                 except Exception as e:
                     print(f"Erreur lors de la lecture du fichier {file_path}: {e}")
 
     return results
-
 
 def save_topics(topics_list, topics_output):
     if len(topics_list) == 0:
@@ -58,7 +66,6 @@ def save_topics(topics_list, topics_output):
     with open(topics_output, 'w') as ofile:
         json.dump(topics_list, ofile, indent=4)
         print(f"Topics written in {topics_output}")
-    
 
 
 if __name__ == '__main__':
@@ -91,7 +98,3 @@ if __name__ == '__main__':
         print(f"Folder ./outputs created")
         
     save_topics(results_topics, project_output_path)
-
-    
-
-

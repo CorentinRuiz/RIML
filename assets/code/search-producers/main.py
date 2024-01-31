@@ -99,9 +99,17 @@ def get_producers(content, file, project_name, service, config_value_cache=None)
     producers = []
     matches = re.findall(r'\.send\((.*),.*;', content)
     if matches:
+        pattern = r'^[\'\"](.*?)[\'\"]$'
+        match = re.match(pattern,matches[0]) 
+        topic_name=""
+        if match:
+            topic_name=matches[0]
+        else:
+            topic_name="No topic name found"
+            
         producers.append({
             "project": project_name,
-            "topic": matches[0],
+            "topic": topic_name,
             "type": "producer",
             "file": file,
             "service": service
@@ -144,9 +152,16 @@ def replace_config_values(content, config_value_cache={}, service=''):
         print(f"{BCOLORS.FAIL}Config value {config_name} not found. (might be out of scope){BCOLORS.ENDC}")
     return content
 
+def get_microservice_name(path):
+    while True:
+        path, folder = os.path.split(path)
+        if folder == "src":
+            return os.path.basename(path)
+        elif not folder:
+            break
+    return os.path.basename(path)
 
 if __name__ == '__main__':
-
     # Générer un identifiant du run
     run_id = str(uuid.uuid4())
 
@@ -175,7 +190,7 @@ if __name__ == '__main__':
                     '.py') or file.endswith('.ts') or file.endswith('.go') or file.endswith('.cs'):
                 # Lire le fichier
                 with open(os.path.join(root, file), 'r') as f:
-                    service = root.split('/')[1]
+                    service = get_microservice_name(root)
                     content = f.read()
                     producers_in_file = get_producers(content, file, project_name, service, config_value_cache)
                     if len(producers_in_file) > 0:

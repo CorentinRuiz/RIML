@@ -2,6 +2,7 @@ import json
 import glob
 import sys
 import os
+import difflib
 
 def counter_prod_cons(path):
       with open(path, 'r') as f:
@@ -22,7 +23,13 @@ def counter_ser_top(path):
 def calculate_topics_diversity(topics_number,services_number):
     return topics_number/services_number
 
-def count_services_comm_w_bus(paths):
+def table_of_services_creator(path):
+    with open(path, 'r') as fichier:
+        table_services = json.load(fichier)
+        return table_services
+
+def count_services_comm_w_bus(paths, path_services):
+    table_of_services = table_of_services_creator(path_services)
     map_services_uses_buses = {}
     for path in paths:
         with open(path, 'r') as f:
@@ -32,19 +39,39 @@ def count_services_comm_w_bus(paths):
                     if item.get("type") == "consumer" or item.get("type") == "producer":
                         service = item.get("service")
                         if service is not None:
-                            if service not in map_services_uses_buses:
-                                map_services_uses_buses[service] = 1
+                            if service in table_of_services:
+                                if service not in map_services_uses_buses:
+                                    map_services_uses_buses[service] = {
+                                        "producers": 0,
+                                        "consumers": 0
+                                    }
+                                if item.get("type") == "consumer":
+                                    map_services_uses_buses[service]["consumers"] += 1
+                                elif item.get("type") == "producer":
+                                    map_services_uses_buses[service]["producers"] += 1
                             else:
-                                map_services_uses_buses[service] += 1
+                                for table_service in table_of_services:
+                                    for word in service.split('-'):
+                                        if difflib.SequenceMatcher(None, word, table_service).ratio() > 0.9:
+                                            if service not in map_services_uses_buses:
+                                                map_services_uses_buses[service] = {
+                                                    "producers": 0,
+                                                    "consumers": 0
+                                                }
+                                            if item.get("type") == "consumer":
+                                                map_services_uses_buses[service]["consumers"] += 1
+                                            elif item.get("type") == "producer":
+                                                map_services_uses_buses[service]["producers"] += 1
+                                            break
     return map_services_uses_buses
 
-def create_metrics(path_producers, path_consumers, path_services, path_topics):
+def create_metrics(path_producers, path_consumers, path_services, path_topics):   
     services_number = counter_ser_top(path_services)
     topics_number = counter_ser_top(path_topics)
     producers_number = counter_prod_cons(path_producers)
     consumers_number = counter_prod_cons(path_consumers)
     topics_diversity=calculate_topics_diversity(topics_number,services_number)
-    number_services_comm_w_bus=count_services_comm_w_bus([path_producers,path_consumers])
+    number_services_comm_w_bus=count_services_comm_w_bus([path_producers,path_consumers],path_services)
     
     data = {
     "producers_number": producers_number,
@@ -52,7 +79,9 @@ def create_metrics(path_producers, path_consumers, path_services, path_topics):
     "services_number": services_number,
     "topics_number": topics_number,
     "topics_diversity": topics_diversity,
-    "communication_rate_map": number_services_comm_w_bus
+    "communication_rate_map": number_services_comm_w_bus,
+    "services_names": table_of_services_creator(path_services),
+    "topics_names": table_of_services_creator(path_topics),
     }
     
     return data

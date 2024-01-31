@@ -149,6 +149,14 @@ def replace_config_values(content, config_value_cache={}, service=''):
         print(f"{BCOLORS.FAIL}Config value {config_name} not found. (might be out of scope){BCOLORS.ENDC}")
     return content
 
+def get_microservice_name(path):
+    while True:
+        path, folder = os.path.split(path)
+        if folder == "src":
+            return os.path.basename(path)
+        elif not folder:
+            break
+    return os.path.basename(path)
 
 if __name__ == '__main__':
 
@@ -181,7 +189,7 @@ if __name__ == '__main__':
                     '.py') or file.endswith('.ts') or file.endswith('.go') or file.endswith('.cs'):
                 # Lire le fichier
                 with open(os.path.join(root, file), 'r') as f:
-                    service = root.split('/')[1]
+                    service = get_microservice_name(root)
                     content = f.read()
                     consumers_in_file = get_consumers(content, file, project_name, service, config_value_cache)
                     if len(consumers_in_file) > 0:

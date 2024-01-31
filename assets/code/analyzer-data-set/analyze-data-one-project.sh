@@ -7,6 +7,9 @@ project_name=$(echo "$1" | cut -d "/" -f 2)
 
 output_directories=()
 
+rm -rf ./outputs/*
+rm -rf ./metrics/*
+
 for folder in "${folders[@]}"
 do
     echo "Recherche de scripts Python dans le dossier : $folder"
