@@ -65,7 +65,7 @@ def render_content(tab):
     html.H2("Topics diversity"),
     html.Div([
         html.Div([
-            html.P(round(topics_diversity*10)/10, style={'margin-left': '40px', 'font-size': '50px', 'font-weight': 'bold'}),
+            html.P(data["topics_number"], style={'margin-left': '40px', 'font-size': '50px', 'font-weight': 'bold'}),
             html.P("topic(s)", style={'position': 'relative', 'top': '30px', 'left': '10px', 'font-size': '25px'}),
             html.Hr(style={'height': '200px', 'background': 'white', 'position': 'relative', 'top': '5px', 'left': '-40px', 'transform': 'rotate(65deg)', 'border': '3!important', 'opacity': '1 !important'}),
             html.Div([

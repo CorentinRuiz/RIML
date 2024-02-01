@@ -98,7 +98,7 @@ def categorize_project(producers, consumers, topics, topics_diversity):
 
     if producers == 1 and consumers == 1 and topics == 1:
         categorization['difficulty'] = 'Beginner'
-    elif producers <= 5 or consumers <= 5 and topics <= 5 and topics_diversity >= 0.4:
+    elif producers <= 5 and consumers <= 5 and topics <= 5 and topics_diversity >= 0.4:
         categorization['difficulty'] = 'Intermediate'
     else:
         categorization['difficulty'] = 'Advanced'
