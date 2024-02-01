@@ -53,7 +53,7 @@ def find_other_topics(pathToProject):
                                         if kafka_topic_name_value:
                                             results.append(kafka_topic_name_value.group(1).strip())
                                     else:
-                                        results.append(match.strip())
+                                        results.append(match.strip().replace("kafka.topic.",""))
                 except Exception as e:
                     print(f"Erreur lors de la lecture du fichier {file_path}: {e}")
 

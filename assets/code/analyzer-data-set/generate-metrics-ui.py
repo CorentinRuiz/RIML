@@ -6,6 +6,18 @@ import json
 import sys
 import dash_bootstrap_components as dbc
 
+
+
+def getColorCategory(category):
+    color = None
+    if category == 'Beginner':
+        color = 'green'
+    elif category == 'Intermediate':
+        color = 'orange'
+    else:
+        color = 'red'
+    return color
+
 app = dash.Dash(external_stylesheets=[dbc.themes.BOOTSTRAP,'./assets/style.css'])
 
 if(len(sys.argv) != 2):
@@ -37,7 +49,7 @@ app.layout = html.Div([
     html.H1(f"Metrics dashboard of {nom_du_projet}", style={'text-align': 'center', 'color': 'black'}),
     dcc.Tabs(id="tabs", value='tab-1', children=[
         dcc.Tab(label='Metrics Board', value='tab-1'),
-        dcc.Tab(label='Informartion Board', value='tab-2'),
+        dcc.Tab(label='Information Board', value='tab-2'),
     ]),
     html.Div(id='tabs-content')
 ])
@@ -126,6 +138,19 @@ def render_content(tab):
                     html.Div(data["topics_number"], style={'font-size': '36px', 'font-weight': 'bold', 'color': 'white'}),
                 ], style={'background-color': '#34495e', 'padding': '20px', 'border-radius': '10px', 'text-align': 'center'}),
             ], style={'display': 'flex', 'justify-content': 'space-evenly', 'align-items': 'center'}),
+                html.Div(
+                    [
+                        dbc.Card(
+                            dbc.CardBody([
+                                    html.H2("Categorization of the project", className="mb-2"),
+                                    html.P([
+                                        html.Span(data["categorization"]["difficulty"], style={'color': 'white', 'background-color': getColorCategory(data["categorization"]["difficulty"]), 'padding': '5px'})
+                                    ])
+                                ]),
+                            className="mb-3 mt-3",
+                        ),
+                    ]
+                ),
             html.Div([
                 html.H2("All Services Names"),
                 dbc.Accordion(

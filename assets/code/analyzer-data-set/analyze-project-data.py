@@ -72,6 +72,7 @@ def create_metrics(path_producers, path_consumers, path_services, path_topics):
     consumers_number = counter_prod_cons(path_consumers)
     topics_diversity=calculate_topics_diversity(topics_number,services_number)
     number_services_comm_w_bus=count_services_comm_w_bus([path_producers,path_consumers],path_services)
+    categorization = categorize_project(producers_number, consumers_number, topics_number, topics_diversity)
     
     data = {
     "producers_number": producers_number,
@@ -82,6 +83,7 @@ def create_metrics(path_producers, path_consumers, path_services, path_topics):
     "communication_rate_map": number_services_comm_w_bus,
     "services_names": table_of_services_creator(path_services),
     "topics_names": table_of_services_creator(path_topics),
+    "categorization": categorization,
     }
     
     return data
@@ -90,6 +92,23 @@ def save_metrics(data, path):
     with open(path, 'w') as ofile:
         json.dump(data, ofile, indent=4)
         print(f"Metrics written in {path}")
+        
+def categorize_project(producers, consumers, topics, topics_diversity):
+    categorization = {}
+
+    if producers == 1 and consumers == 1 and topics == 1:
+        categorization['difficulty'] = 'Beginner'
+    elif producers <= 5 or consumers <= 5 and topics <= 5 and topics_diversity >= 0.4:
+        categorization['difficulty'] = 'Intermediate'
+    else:
+        categorization['difficulty'] = 'Advanced'
+
+    categorization['producers'] = producers
+    categorization['consumers'] = consumers
+    categorization['topics'] = topics
+    categorization['topics_diversity'] = topics_diversity
+
+    return categorization
     
 def main():
     path_producers = glob.glob("outputs/*--search-producers.json")
