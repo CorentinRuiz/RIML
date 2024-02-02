@@ -19,7 +19,7 @@ date:   2023-11
 ---
 
 ---
-# TODO: Supprimer ce bandeau avant le rendu
+# TODO : Supprimer ce bandeau avant le rendu
 
 Critères d'évaluation :
 - Présentation des résultats
@@ -41,7 +41,7 @@ Critères d'évaluation :
 - Conclusion
 ---
 
-**_février 2024_**
+**_Février 2024_**
 
 ## Authors
 
@@ -54,21 +54,19 @@ Nous sommes quatre étudiants ingénieurs en dernière année à Polytech Nice S
 * Cyril VROUSOS &lt;cyril.vrousos@etu.unice.fr&gt;
 ## I. Contexte de recherche / Projet
 
-Les architectures microservices ont récemment émergé comme une approche dans le domaine du développement logiciel, offrant une alternative décentralisée aux structures monolithiques. Cette transition vers les microservices est motivée par le désir d'accroître la modularité, la flexibilité et la scalabilité des applications. Les projets open source embrassent de plus en plus ces architectures distribuées, reconnaissant leur potentiel à répondre aux exigences croissantes de systèmes logiciels complexes.
+Les architectures microservices ont récemment émergé comme une approche dans le domaine du développement logiciel, offrant une alternative décentralisée aux architectures monolithiques. Cette transition vers les microservices est motivée par le désir d'accroître la modularité, la flexibilité et la scalabilité des applications. Les projets open source embrassent de plus en plus ces architectures distribuées, reconnaissant leur potentiel à répondre aux exigences croissantes de systèmes logiciels complexes.
 
-L'un des patterns les plus populaires intégrés aux architectures microservices est l'event-sourcing. Cette pratique de conception propose un modèle où chaque modification de l'état d'une application est enregistrée sous forme d'événement immuable. L'event-sourcing offre une traçabilité granulaire des changements, facilitant la reconstitution de l'état d'une application à n'importe quel moment. Dans le contexte des microservices, cette approche peut renforcer la cohérence des données dans des environnements distribués, améliorant ainsi la résilience et la gestion des transactions.
+L'un des modèles de conception les plus populaires intégrés aux architectures microservices est l'event-sourcing. Cette pratique de conception propose un modèle où chaque modification de l'état d'une application est enregistrée sous forme d'événement immuable. L'event-sourcing permet une traçabilité des changements d'états, facilitant la reconstitution de l'état d'une application à n'importe quel moment. Dans le contexte des microservices, cette approche peut renforcer la cohérence des données dans des environnements distribués, améliorant ainsi la résilience et la gestion des transactions.
 
-Une intégration réussie de l'event-sourcing dans les architectures microservices nécessite une bonne compréhension des échanges entre les services. L'adoption croissante de l'event-sourcing dans des projets open source souligne l'importance de cette intégration et pose des questions cruciales sur sa pertinence et son efficacité dans ce contexte spécifique.
+Pour pouvoir mettre en place de l'event sourcing dans un projet microservices, il est nécessaire d'avoir une bonne compréhension des échanges entre les services. En effet, l'event sourcing repose sur la communication entre les services pour pouvoir émettre et consommer des événements. C'est pourquoi il est important de comprendre comment les projets open source implémentent et utilisent un bus d'événements dans leurs systèmes. C'est particulièrement sur ce point que nous souhaitons nous concentrer dans ce chapitre.
 
-En analysant les caractéristiques de l'intégration de l'event-sourcing, il devient possible d'identifier la complexité d'apprentissage associée à chaque projet. Cette évaluation permettra de catégoriser les projets en fonction de leurs approches et visions spécifiques de l'event-sourcing, contribuant ainsi à définir des modèles d'implémentation et à se renseigner sur les meilleures pratiques.
-
-Par ailleurs, l'évaluation de la pertinence de l'implémentation de l'event-sourcing dans les projets open source en microservices offre une opportunité significative d'identification de cas d'utilisation exemplaires et d'approches novatrices. Ces exemples pourraient servir de références inspirantes pour d'autres développeurs et équipes de projet, favorisant ainsi la diffusion de bonnes pratiques et contribuant à l'amélioration continue de la qualité logicielle au sein de la communauté open source.
+En analysant les caractéristiques des projets open source, nous pourrions identifier des stratégies et des bonnes pratiques pour intégrer et utiliser de manière efficace un bus d'événements dans des systèmes distribués. Il deviendra alors possible de catégoriser les projets open source en fonction de la relation entre les microservices et le bus d'événements et du degré de complexité de leur intégration. Cette analyse pourrait également révéler des tendances et des modèles de conception qui pourraient être utiles pour les développeurs souhaitant implémenter des architectures microservices.
 
 ## II. Observations/Question générale
 
 Notre sujet est motivé par la question suivante.
 
-> Les projets open-source implémentés en micro-services sont-ils de bons candidats pour apprendre les principes des architectures micro-services ?
+> Les projets open-source implémentés en microservices sont-ils de bons candidats pour apprendre les principes des architectures microservices ?
 
 ### Sous-question
 Nous avons choisi de restreindre ce sujet à la question suivante.
@@ -77,9 +75,9 @@ Nous avons choisi de restreindre ce sujet à la question suivante.
 
 ### Pourquoi se concentrer sur la gestion des événements ?
 
-Se pencher sur la manière dont les projets open source intègrent un système de bus d'événements dans leurs logiciels est une question importante. Lorsqu'on parle d'architectures microservices, on parle de comment organiser un système pour qu'il soit plus flexible, évoluable et facile à entretenir. Le fait d'ajouter un bus d'événements dans cette configuration facilite la communication entre les différentes parties du logiciel de manière plus souple, ce qui permet de mieux coordonner les actions.
+Se pencher sur la manière dont les projets open source intègrent un système de bus d'événements dans leurs logiciels est une question importante. Lorsqu'on parle d'architectures microservices, on parle de comment organiser un système pour qu'il soit plus flexible, évolutif et facile à entretenir. Le fait d'ajouter un bus d'événements dans cette configuration facilite la communication entre les différentes parties du logiciel de manière plus souple, ce qui permet de mieux coordonner les actions.
 
-Cette question prend tout son sens quand on parle de maintenance logicielle, car elle explore comment les projets open source s'attaquent aux problèmes liés à la gestion des événements dans des systèmes qui sont répartis sur plusieurs parties. Comprendre ces différentes façons de faire est essentiel pour s'assurer que ces systèmes restent stables, résilients et cohérents au fil du temps, tout en facilitant l'ajout de nouvelles fonctionnalités. En résumé, la question aborde des aspects très importants pour la manière dont ces projets fonctionnent au quotidien et pour leur pérennité.
+Cette question prend tout son sens quand il est question de maintenance logicielle. En effet, elle pousse à explorer la manière dont les projets open source s'attaquent aux problèmes liés à la gestion des événements dans des systèmes qui sont répartis sur plusieurs nœuds. Comprendre ces différentes façons de faire est essentiel pour s'assurer que ces systèmes restent stables, résilients et cohérents au fil du temps, tout en facilitant l'ajout de nouvelles fonctionnalités. En résumé, la question aborde des aspects très importants pour la manière dont ces projets fonctionnent au quotidien et pour leur pérennité.
 
 ### Comment allons-nous procéder ?
 
@@ -87,40 +85,40 @@ Pour pouvoir procéder à notre analyse, nous allons devoir tout d'abord couper 
 
 1. Comment reconnaître un projet micro-service ?
 2. Comment détecter l'utilisation d'un bus ?
-3. Comment identifier les micro-services dans un projet ?
+3. Comment identifier les microservices dans un projet ?
 4. Par quels moyens les bus sont utilisés dans le projet ?
 
-## III. Collecte d'informations
+## III. Collecte d'information
 
 ### Articles
 
 Pour nous aider dans cette étude, nous avons pu nous appuyer sur les articles suivants :
 
-* Microservices Guide - Martin Fowler https://martinfowler.com/microservices/
+**Microservices Guide - Martin Fowler https://martinfowler.com/microservices/**
 
-   Les ouvrages de Martin Fowler nous ont suivis tout au long de ce semestre pour nous apprendre les rouages des systèmes distribués en microservice, nous devions nous appuyer sur ces travaux pour nous diriger sur la question que nous souhaitions traiter lors de ce chapitre
+Les ouvrages de Martin Fowler nous ont suivis tout au long de ce semestre pour nous apprendre les rouages des systèmes distribués en microservice, nous devions nous appuyer sur ces travaux pour nous diriger sur la question que nous souhaitions traiter lors de ce chapitre
 
-* Microservices analysis https://github.com/deib-polimi/microservices-analysis
+**Microservices analysis https://github.com/deib-polimi/microservices-analysis**
 
-   Nous nous sommes appuyés sur ce projet pour nous aider à comprendre comment créer notre premier jeu de données.
+Nous nous sommes appuyés sur ce projet pour nous aider à comprendre comment créer notre premier jeu de données.
 
 ### Outils
 
-Pour les outils, nous avons majoritairement créé nos propres outils/scripts en Python pour nous permettre d'analyser du code statique notamment.
+Pour les outils, nous avons majoritairement créé nos propres outils/scripts en Python pour nous permettre de mener des analyses statiques du code notamment.
 
 ### Jeu de données
 
 Pour cette partie, nous avons cherché à créer notre propre jeu de données à l'aide de l'API GitHub ainsi que des scripts Python. 
- 
+
 ## IV. Hypothèses et expériences
 
 ## Création du jeu de données
 
-   Pour la création du jeu de données, nous avons émis une petite hypothèse que nous pouvions trouver des projets microservices grâce à des recherches dans leurs noms ainsi que dans leurs descriptions. Nous avons aussi utilisé le fichier CSV donné dans le projet Microservices analysis. 
+   Pour la création du jeu de données, nous avons émis une petite hypothèse en supposant que nous pouvions trouver des projets microservices grâce à des recherches dans leurs noms ainsi que dans leurs descriptions. Nous avons aussi utilisé le fichier CSV donné dans le projet Microservices analysis. 
 
-### Comment dans ce jeu de données pouvons-nous considérer que le projet est bien un projet micro-service ?
+### Comment, dans ce jeu de données, pouvons-nous considérer que le projet est bien un projet microservices ?
 
->Hypothèse 1 : Un projet est considéré comme micro-service quand on trouve un docker-compose dans le projet qui n'est pas vide et qui contient au moins deux clés. 
+> Hypothèse 1 : Un projet est considéré comme micro-service quand on trouve un docker-compose dans le projet qui n'est pas vide et qui contient au moins deux clés. 
 
 > Description :
  Dans cette expérience, nous souhaitons réduire notre jeu de données initialement trouvé grâce à la recherche des mots-clés sur l'API GitHub. 
@@ -141,9 +139,9 @@ Il y a plusieurs limites à cette approche :
 
 Pour remédier à certaines de ces limites, nous avons dû faire le choix de nous restreindre à un langage et une technologie de bus d'événements.
 
-Pour ce faire, nous avons choisi de nous restreindre à Kafka pour le bus d'événements car la technologie était présente dans la majorité des projets choisis et nous étions familiers avec la technologie.
+Pour ce faire, nous avons choisi de nous restreindre à Kafka pour le bus d'événements, car la technologie était présente dans la majorité des projets choisis et nous étions familiers avec la technologie.
 
-Cependant, nous devions faire un choix sur quel langage cibler. Pour cela, nous avons créé un script permettant de sortir les statistiques des langages les plus utilisés de notre jeu de données.
+Cependant, nous devions faire un choix sur quel langage cibler. Pour cela, nous avons créé un script permettant de présenter les statistiques des langages les plus utilisés de notre jeu de données.
 
 ![image](./assets/images/languages_stats.png)
 
@@ -151,21 +149,20 @@ Ce graphique nous a permis d'identifier que la majorité des projets de notre en
 
 ## Détection d'un bus
 
->Hypothèse 2 : Un projet utilise un bus Kafka lorsqu'une trace d'un nom contenant le mot 'Kafka' est trouvée dans le fichier docker-compose, par exemple : kafka, broker-kafka, etc.
+> Hypothèse 2 : Un projet utilise un bus Kafka lorsqu'une trace d'un nom contenant le mot 'Kafka' est trouvée dans le fichier docker-compose, par exemple : kafka, broker-kafka, etc.
 
-> Description: Dans le cadre de cette expérience, notre objectif est de garantir l'utilisation du broker Kafka pour chaque projet de notre ensemble de données.
+> Description : Dans le cadre de cette expérience, notre objectif est de garantir l'utilisation du broker Kafka pour chaque projet de notre ensemble de données.
 
 #### Démarche :
 
 * Création et exécution d'un script Python permettant de parcourir un repo GitHub donné en paramètre 
 * Analyse du docker-compose pour retrouver les mots-clés contenant Kafka
 
+## Comment identifier les microservices dans un projet ?
 
-## Comment identifier les micro-services dans un projet ?
+> Hypothèse 3 : Tous les microservices se retrouvent dans le docker-compose étant donné que le projet en microservices s'exécute dans un environnement Docker.
 
-> Hypothèse 3 : Tous les micro-services se retrouvent dans le docker-compose étant donné que le projet en microservices s'exécute dans un environnement Docker.
-
-> Description: Dans le cadre de cette expérience, notre objectif est d'identifier chaque microservice d'un projet afin de faciliter ensuite la reconnaissance des communications entre les services.
+> Description : Dans le cadre de cette expérience, notre objectif est d'identifier chaque microservice d'un projet afin de faciliter ensuite la reconnaissance des communications entre les services.
 
 #### Démarche : 
 
@@ -176,7 +173,7 @@ Ce graphique nous a permis d'identifier que la majorité des projets de notre en
 
 Les limites que nous avons pu rencontrer dans cette partie concernent la façon dont un docker-compose est utilisé. En effet, le docker-compose n'est pas uniquement dédié à l'exécution des microservices, mais également à celle d'une variété d'autres outils tels que les bases de données, le monitoring, les brokers, etc.
 
-    zipkin: <=== un zipkin
+    zipkin:                     # un zipkin
     
     image: openzipkin/zipkin
     
@@ -184,17 +181,17 @@ Les limites que nous avons pu rencontrer dans cette partie concernent la façon 
     
     - "9411:9411"
     
-    mongo: <== une base de données
-    
+    mongo:                      # une base de données
+
     image: mongo
     
     ...
     
-    order-service:  <== potentiel service
+    order-service:              # potentiel service
     
     image: order-service
     
-    api-gateway: <==== une gateway
+    api-gateway:                # une gateway
     
     image: api-gateway
     
@@ -253,7 +250,7 @@ Afin d'atteindre cet objectif, nous avons créé une liste de mots-clés fréque
      :bulb:  Vos résultats et donc votre analyse sont nécessairement limités. Précisez bien ces limites : par exemple, jeux de données insuffisants, analyse réduite à quelques critères, dépendance aux projets analysés, ...
 4. On peut dire que certaines métriques ne sont pas forcément intéressantes
 
-## VI. Outils \(facultatif\)
+## VI. Outils
 
 1. **analyze-data-set-statistic:**
    - Ce dossier contient des scripts statistiques spécifiques pour les jeux de données, tels que des statistiques sur les langages. 
@@ -278,4 +275,11 @@ Afin d'atteindre cet objectif, nous avons créé une liste de mots-clés fréque
 
 ## VI. Références
 
-[Debret 2020] Debret, J. (2020) La démarche scientifique : tout ce que vous devez savoir ! Available at: https://www.scribbr.fr/article-scientifique/demarche-scientifique/ (Accessed: 18 November 2022).
+[Debret 2020] Debret, J. (2020) La démarche scientifique : tout ce que vous devez savoir ! \
+Available at: https://www.scribbr.fr/article-scientifique/demarche-scientifique/.
+
+[Fowler 2019] Microservices guide. \
+Available at: https://martinfowler.com/microservices/.
+
+[Rasi 2021] Microservices analysis. \
+Available at: https://github.com/deib-polimi/microservices-analysis
