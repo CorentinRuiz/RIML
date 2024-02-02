@@ -246,30 +246,30 @@ Afin d'atteindre cet objectif, nous avons créé une liste de mots-clés fréque
 
 ### Présentation des résultats
 
-Pour nos résultats nous avons décider de créer un outils permettant d'éxécuter chaque script et de réunir les résultats pour en déduire des métriques.
+Pour présenter nos résultats, nous avons décidé de créer un outil permettant d'éxécuter chaque script et de réunir les résultats pour en déduire des métriques.
 
-Tout d'abord nous avons un métrique permettant de décrire la diversité des topics c'est à dire le 
+Tout d'abord, nous présentons une métrique permettant de décrire la diversité des topics, c'est-à-dire le 
 `nombre de topics / nombres de services`.
 
-Ce métrique est un indicateur intéressant pour évaluer la distribution des topics au sein d'une architecture microservices.
+Cette métrique est un indicateur intéressant pour évaluer la distribution des topics au sein d'une architecture microservices et comprendre la complexité des communications entre les services.
 
 ![Topics diversity](./assets/images/topic_diversity.png)
 
-Ensuite nous avons un métrique permettant de décrire la diversité des topics c'est à dire le `nombre de producteurs / nombres de consommateurs`.
+Ensuite, nous avons une métrique permettant de décrire l'activité des topics, c'est-à-dire la proportion de producteurs d'évènements par rapports aux consommateurs. Celle-ci est calculée par `nombre de producteurs / nombres de consommateurs`.
 
-Ce métrique peut fournir des informations intéressantes sur la diversité et l'équilibre au sein de votre architecture microservices.
+Cette métrique peut fournir des informations intéressantes sur la diversité et l'équilibre au sein d'une architecture microservices.
 
 ![prod_cons_ratio](./assets/images/prod_cons_ratio.png)
 
-Pour finir nous avons deux métriques permettant de décrire le projet visuellemnt le projet c'est à dire nous avons un métriques pour voir la répartitions services consumer & producer d'un projet et un métriques permettant de voir la répartition des producer et consumer par services.
+Pour finir, nous avons deux métriques permettant de décrire visuellement le projet. En effet, nous présentons une métrique permettant de voir la répartition de services, de consumer et de producer d'un projet et une métrique permettant de voir la répartition des producer et consumer par services.
 
-Ces métriques peuvent donner une vision globale de la distribution des responsabilités dans l'ensemble du projet. Ils permettent de comprendre les communications et les possibles services ayant des responsabilité élévés en production et consommation d'événements.
+Ces métriques peuvent donner une vision globale de la distribution des responsabilités dans l'ensemble du projet. Ils permettent de comprendre les communications et de mettre en avant les services avec des responsabilités élevées en production et consommation d'événements.
 
 ![prod_cons_services Ratio](image.png)
 
 ![Alt text](image-1.png)
 
-Les diverses métriques que nous avons utilisées ont été cruciales pour évaluer un projet. Afin d'éviter toute interprétation subjective des projets, notre approche a consisté à les évaluer en fonction du niveau d'apprentissage requis. Nous avons attribué des indications de niveau, telles que débutant, intermédiaire ou avancé, pour refléter le degré de complexité et de compréhension nécessaire à la mise en œuvre réussie de ces projets.
+Les diverses métriques que nous avons utilisées nous ont rendu capables d'évaluer un projet. Afin d'éviter toute interprétation subjective des projets, notre approche a consisté à les évaluer en fonction du niveau d'apprentissage requis. Nous avons attribué des indications de niveau, telles que débutant, intermédiaire ou avancé, pour refléter le degré de complexité et de compréhension nécessaire à la mise en œuvre réussie de ces projets.
 
 ![Alt text](image-2.png)
 
