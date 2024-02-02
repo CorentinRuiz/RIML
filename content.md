@@ -87,6 +87,7 @@ Pour pouvoir procéder à notre analyse, nous allons devoir tout d'abord couper 
 2. Comment détecter l'utilisation d'un bus ?
 3. Comment identifier les microservices dans un projet ?
 4. Par quels moyens les bus sont utilisés dans le projet ?
+5. Est-il possible de catégoriser les projets pour donner un indicateur de niveaux d'apprentissage d'un projet ?
 
 ## III. Collecte d'information
 
@@ -243,12 +244,37 @@ Afin d'atteindre cet objectif, nous avons créé une liste de mots-clés fréque
 
 ## V. Analyse des résultats et conclusion
 
-1. Présentation des résultats
-2. Interprétation/Analyse des résultats en fonction de vos hypothèses
-3. Construction d'une conclusion 
+### Présentation des résultats
 
-     :bulb:  Vos résultats et donc votre analyse sont nécessairement limités. Précisez bien ces limites : par exemple, jeux de données insuffisants, analyse réduite à quelques critères, dépendance aux projets analysés, ...
-4. On peut dire que certaines métriques ne sont pas forcément intéressantes
+Pour nos résultats nous avons décider de créer un outils permettant d'éxécuter chaque script et de réunir les résultats pour en déduire des métriques.
+
+Tout d'abord nous avons un métrique permettant de décrire la diversité des topics c'est à dire le 
+`nombre de topics / nombres de services`.
+
+Ce métrique est un indicateur intéressant pour évaluer la distribution des topics au sein d'une architecture microservices.
+
+![Topics diversity](./assets/images/topic_diversity.png)
+
+Ensuite nous avons un métrique permettant de décrire la diversité des topics c'est à dire le `nombre de producteurs / nombres de consommateurs`.
+
+Ce métrique peut fournir des informations intéressantes sur la diversité et l'équilibre au sein de votre architecture microservices.
+
+![prod_cons_ratio](./assets/images/prod_cons_ratio.png)
+
+Pour finir nous avons deux métriques permettant de décrire le projet visuellemnt le projet c'est à dire nous avons un métriques pour voir la répartitions services consumer & producer d'un projet et un métriques permettant de voir la répartition des producer et consumer par services.
+
+Ces métriques peuvent donner une vision globale de la distribution des responsabilités dans l'ensemble du projet. Ils permettent de comprendre les communications et les possibles services ayant des responsabilité élévés en production et consommation d'événements.
+
+![prod_cons_services Ratio](image.png)
+
+![Alt text](image-1.png)
+
+Les diverses métriques que nous avons utilisées ont été cruciales pour évaluer un projet. Afin d'éviter toute interprétation subjective des projets, notre approche a consisté à les évaluer en fonction du niveau d'apprentissage requis. Nous avons attribué des indications de niveau, telles que débutant, intermédiaire ou avancé, pour refléter le degré de complexité et de compréhension nécessaire à la mise en œuvre réussie de ces projets.
+
+![Alt text](image-2.png)
+
+
+
 
 ## VI. Outils
 
