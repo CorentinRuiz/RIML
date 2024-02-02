@@ -74,7 +74,7 @@ def get_services(file, project):
     terms_to_check = ['db', 'database', 'kafka', 'redis', 'mongo', 'mongodb','grafana','kibana','cassandra',
                       'keycloak','monitoring','prometheus','zookeeper','broker','rabbitmq','webapp', 'apache', 
                       'postgres','mysql', 'config', 'zipkin', 'discovery','jaeger','elasticsearch','elastic-search','otel-collector'
-                      ,'nginx','apm-server', 'control-center','schema','gateway','kafdrop','monitor']
+                      ,'nginx','apm-server', 'control-center','schema','gateway','kafdrop','monitor','PostgreSQL','pgadmin']
 
     docker_compose_config = yaml.safe_load(file)
     services = docker_compose_config.get('services', {})

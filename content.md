@@ -250,7 +250,7 @@ Les diverses métriques que nous avons utilisées nous ont rendu capables d'éva
 
 ### Résultats de l'analyse
 
-Nous avons étudier une vingtaine de projet grâce à notre outils (le jeux de donnée final se trouve à la racine du dossier assets [dataset](./assets/data-set-final.txt))
+Nous avons étudier une quinzaine de projet grâce à notre outils (le jeux de donnée final se trouve à la racine du dossier assets [dataset](./assets/data-set-final.txt))
 
 Tous ces projets que nous avons tester ont permis d'affiner nos métriques mais aussi de nous montrer si c'est projet peuvent permettre d'apprendre à utiliser un bus d'événement Kafka.
 
