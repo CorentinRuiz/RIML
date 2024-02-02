@@ -45,7 +45,7 @@ Critères d'évaluation :
 
 ## Authors
 
-Nous sommes quatre étudiants ingénieurs en dernière année à Polytech Nice Sophia, spécialisés en Architecture Logiciel :
+Nous sommes quatre étudiants ingénieurs en dernière année à Polytech Nice Sophia, spécialisés en architecture logicielle.
 
 * Thomas GUIOT &lt;thomas.guiot@etu.unice.fr&gt;
 * Antony MARTIN &lt;antony.martin@etu.unice.fr&gt;
@@ -129,7 +129,7 @@ Pour cette partie, nous avons cherché à créer notre propre jeu de données à
 
  * Pour ce faire, nous devons créer un script permettant d'accéder à chaque repo de notre premier jeu de données, chercher dans ce dernier l'existence d'un docker-compose. 
 
-* Une fois le docker-compose trouvé, nous devons analyser le docker-compose pour y trouver le nombre de services potentiels (les clés YAML) mais aussi l'utilisation ou non d'un bus
+* Une fois le docker-compose trouvé, nous devons analyser le docker-compose pour y trouver le nombre de services potentiels (les clés YAML) mais aussi l'utilisation ou non d'un bus.
 
 ### Limites & Décision :
 
@@ -137,7 +137,7 @@ Il y a plusieurs limites à cette approche :
 
 1. Tout d'abord, il est assez facile de trouver docker-compose dans un repo avec le mot-clé microservices. 
 2. Ensuite, rien ne garantit que l'utilisation du docker-compose n'est pas uniquement pour des bases de données ou autres technologies
-3. Pour finir, l'étude peut vite devenir compliquée s'il on accepte les différentes technologies et langages possibles
+3. Pour finir, l'étude peut vite devenir compliquée si l'on accepte les différentes technologies et langages possibles.
 
 Pour remédier à certaines de ces limites, nous avons dû faire le choix de nous restreindre à un langage et une technologie de bus d'événements.
 
@@ -147,13 +147,13 @@ Cependant, nous devions faire un choix sur quel langage cibler. Pour cela, nous 
 
 ![image](./assets/images/languages_stats.png)
 
-Ce graphique nous a permis d'identifier que la majorité des projets de notre dataset étaient des projets développés en Java. Notre choix s'est donc porté vers ce langage.
+Ce graphique nous a permis d'identifier que la majorité des projets de notre ensemble de données étaient développés en Java. Notre choix s'est donc porté vers ce langage.
 
 ## Détection d'un bus
 
->Hypothèse 2 : Un projet utilise un bus Kafka quand on trouve dans le docker-compose une trace d'un nom contenant le mot Kafka, par exemple: kafka, broker-kafka, etc..
+>Hypothèse 2 : Un projet utilise un bus Kafka lorsqu'une trace d'un nom contenant le mot 'Kafka' est trouvée dans le fichier docker-compose, par exemple : kafka, broker-kafka, etc.
 
-> Description: Dans cette expérience, nous souhaitons garantir l'utilisation du broker Kafka de chaque projet de notre dataset.
+> Description: Dans le cadre de cette expérience, notre objectif est de garantir l'utilisation du broker Kafka pour chaque projet de notre ensemble de données.
 
 #### Démarche :
 
@@ -163,9 +163,9 @@ Ce graphique nous a permis d'identifier que la majorité des projets de notre da
 
 ## Comment identifier les micro-services dans un projet ?
 
-> Hypothèse 3 : Tous les micro-services se retrouvent dans le docker-compose étant donné que le projet en microservices s'exécute dans un environnement Docker
+> Hypothèse 3 : Tous les micro-services se retrouvent dans le docker-compose étant donné que le projet en microservices s'exécute dans un environnement Docker.
 
-> Description: Nous souhaitons avec cette expérience pouvoir identifier chaque microservice d'un projet pour nous permettre ensuite l'identification des communications entre les services
+> Description: Dans le cadre de cette expérience, notre objectif est d'identifier chaque microservice d'un projet afin de faciliter ensuite la reconnaissance des communications entre les services.
 
 #### Démarche : 
 
@@ -174,7 +174,7 @@ Ce graphique nous a permis d'identifier que la majorité des projets de notre da
 
 ### Limites & Décision
 
-Les limites que nous avons pu rencontrer dans cette partie sont la manière dont un docker-compose est utilisé. Le docker-compose ne sert pas uniquement à l'exécution des microservices mais à l'exécution d'un tas d'autres outils comme les bases de données, le monitoring, les brokers, etc...
+Les limites que nous avons pu rencontrer dans cette partie concernent la façon dont un docker-compose est utilisé. En effet, le docker-compose n'est pas uniquement dédié à l'exécution des microservices, mais également à celle d'une variété d'autres outils tels que les bases de données, le monitoring, les brokers, etc.
 
     zipkin: <=== un zipkin
     
@@ -200,51 +200,49 @@ Les limites que nous avons pu rencontrer dans cette partie sont la manière dont
     
     ...
 
-Pour ce faire, nous avons dû créer une liste de mots-clés rencontrés régulièrement dans tous nos projets pour retirer toutes les technologies qui ne seraient pas des microservices
+Afin d'atteindre cet objectif, nous avons créé une liste de mots-clés fréquemment rencontrés dans tous nos projets, permettant ainsi d'exclure les technologies qui ne seraient pas des microservices.
 
 ## Par quels moyens les bus sont-ils utilisés dans le projet ?
 
-> Hypothèse 4.1 : Les bus kafka utilise essentiellement des consommateur et des producteurs, nous faisons l'hypothése après analyse des differrents projets qu'il n'y a qu'une seul manière de faire pour produire et consommer en Java. 
-La manière de produire un événement est l'utilisation de la méthode `.send()` et la consommation de cette événement ce fait par l'annotation `@KafkaListener`.
+> Hypothèse 4.1 : Les bus Kafka utilisent principalement des producteurs et des consommateurs. Après avoir analysé différents projets, nous faisons l'hypothèse qu'il n'y a qu'une seule manière de produire et de consommer en Java. La production d'un événement se fait à l'aide de la méthode `.send()`, tandis que la consommation de cet événement s'effectue via l'annotation `@KafkaListener`.
 
-> Description : Dans cette experience nous souhaitons retrouver les producteurs et les consommateurs grâce à de l'analyse statique de code.
+> Description : Dans le cadre de cette expérience, nous visons à identifier les producteurs et les consommateurs grâce à une analyse statique du code.
 
 #### Démarche : 
 
-* Création et exécution d'un script Python permettant de cloné un repo GitHub donné en paramètre 
-* Analyse de tous les fichiers du repo finissant par .java
-* Identifier les mot clès `.send()` et `@KafkaListener`
-* Une fois mot-clès identifier, trouvé le services utiliser grâce au chemin absolus
-* Enregistre les informations sur le fichier (producteur/consommateur) et le service dans un fichier au format JSON
+* Création et exécution d'un script Python pour cloner un repo GitHub spécifié en paramètre.
+* Analyse de tous les fichiers du repo se terminant par .java.
+* Identification des mot-clés `.send()` et `@KafkaListener`.
+* Une fois les mot-clés identifiés, recherche du service utilisé à l'aide du chemin absolu.
+* Enregistrement des informations sur le fichier (producteur/consommateur) et le service dans un fichier au format JSON.
 
-### Limites : 
+### Limites :
 
-   - Nous nous arretons à qu'un seul types de production et consommation s'il existe une autre maniere de faire alors celle ci ne sera pas detecté.
+   - Nous nous limitons à un seul type de production et consommation ; si une autre méthode existe, elle ne sera pas détectée.
    
-   - Si la maniere de faire évolue au cours des mise à jours la détection devients obsolètes
+   - En cas d'évolution des méthodes au cours des mises à jour, la détection devient obsolète.
 
 
-> Hypothèse 4.2 : Les bus kafka établisse leurs communication entre producteurs et consommateur grâce à des topics, selon notre analyse et donc hypothèse il existe seulement 3 moyens de déclarer ces topics (statiquement dans le code, dans le docker-compose, dans les properties).
+> Hypothèse 4.2 : Les bus Kafka établissent leurs communications entre producteurs et consommateurs grâce à des topics. Selon notre analyse et hypothèse, il existe uniquement trois moyens de déclarer ces topics (statiquement dans le code, dans le docker-compose, dans les propriétés).
 
-> Description : Cette éxperience à pour but d'identifier tous les topics pour le bus kafka permettant la communication entre les microservices.
+> Description : Cette expérience vise à identifier tous les topics utilisés par le bus Kafka pour la communication entre les microservices.
 
 #### Démarche : 
 
-* Création et exécution d'un script Python permettant de cloné un repo GitHub donné en paramètre 
-* Analyse de tous les fichiers du repo finissant par .java pour l'analyse des topics statique dans le code
-* Analyse du ou des docker-compose du repo
-* Analyse des diferrents fichiers .properties pour retrouver le mots clès 
-`kafka.topic`
-* Créer un fichier JSON rensemblant l'union de toute les analyse précédente
+* Création et exécution d'un script Python permettant de cloner un repo GitHub spécifié en paramètre.
+* Analyse de tous les fichiers du repo se terminant par .java pour l'identification statique des topics dans le code.
+* Analyse du ou des fichiers docker-compose du repo.
+* Analyse des différents fichiers .properties pour retrouver le mot-clé `kafka.topic`.
+* Création d'un fichier JSON regroupant l'ensemble des analyses précédentes.
 
 ### Limites : 
 
-  - Il est parfois difficile de retoruver statiquement les topics dans le code
-  - Il est aussi compliqué d'identifier les communications entre quelle producteur et quelle consommateur communique car quand il est assez facile de trouver le topic pour les consommateur c'est souvent le contraire pour les producteurs
+  - Il est parfois difficile de retrouver statiquement les topics dans le code.
+  - Il est également compliqué d'identifier les communications entre les producteurs et les consommateurs, car il est généralement facile de trouver le topic pour les consommateurs, mais souvent plus difficile pour les producteurs.
 
-  `@KafkaListener("Topic-Name")` <== topic très souvent écrit en dur dans le code pour les consommateur
+  `@KafkaListener("Topic-Name")` <== Le topic est souvent écrit en dur dans le code pour les consommateurs.
 
-  `producer.send(topicVar)` <== nom du topic très souvent utilisé dans une variable
+  `producer.send(topicVar)` <== Le nom du topic est souvent utilisé dans une variable pour les producteurs.
 
 ## V. Analyse des résultats et conclusion
 
@@ -258,10 +256,10 @@ La manière de produire un événement est l'utilisation de la méthode `.send()
 ## VI. Outils \(facultatif\)
 
 1. **analyze-data-set-statistic:**
-   - Ce dossier contient des scripts de statistiques spécifiques pour les jeux de données comme les statistique sur les langages. 
+   - Ce dossier contient des scripts statistiques spécifiques pour les jeux de données, tels que des statistiques sur les langages. 
 
 2. **analyzer-data-set:**
-   - Ce dossier est le plus crucial, abritant le script principal permettant d'analyser un projet. Il génère et affiche les métriques importantes associées au projet, offrant une vue d'ensemble des performances.
+   - Ce dossier est crucial, hébergeant le script principal permettant d'analyser un projet. Il génère et affiche les métriques importantes associées au projet, offrant une vue d'ensemble des performances.
 
 3. **search-consumers:**
    - Ce dossier contient un script permettant de rechercher les consommateurs dans un environnement Kafka. Il facilite l'identification des composants qui consomment des données à partir d'un sujet particulier.
