@@ -1,20 +1,8 @@
 ---
 layout: default
 title : Projets open source bon candidat d'apprentissage
-date:   2023-11
+date:   2024-02-02 23:59:59 +0100
 ---
-
----
-
-   **Date de rendu finale : fin février**
-   - Respecter la structure pour que les chapitres soient bien indépendants
-   - Remarques :
-        - La structure proposée est là pour vous aider, mais peut-être adaptée à votre projet
-        - Les titres peuvent être modifiés pour être en adéquation avec votre étude. 
-        - Utiliser des références pour justifier votre argumentaire, vos choix, etc.
-        - Vous avez le choix d'utiliser le français ou l'anglais.
-
-    Dans l'article de Blog [Debret 2020], l'auteure donne les éléments principaux de la démarche d'une manière simple et très facile à lire, dans la partie [Quelles sont les étapes d’une bonne démarche scientifique ?](https://www.scribbr.fr/article-scientifique/demarche-scientifique/#:~:text=La%20d%C3%A9marche%20scientifique%20permet%20d,de%20nouvelles%20hypoth%C3%A8ses%20%C3%A0%20tester.)
 
 **_Février 2024_**
 
@@ -250,61 +238,61 @@ Les diverses métriques que nous avons utilisées nous ont rendu capables d'éva
 
 ### Résultats de l'analyse
 
-Nous avons étudier une quinzaine de projet grâce à notre outils (le jeux de donnée final se trouve à la racine du dossier assets [dataset](./assets/data-set-final.txt))
+Nous avons étudié une quinzaine de projets grâce à notre outil (le jeu de données final se trouve à la racine du dossier assets : [dataset](./assets/data-set-final.txt))
 
-Tous ces projets que nous avons tester ont permis d'affiner nos métriques mais aussi de nous montrer si c'est projet peuvent permettre d'apprendre à utiliser un bus d'événement Kafka.
+L'ensemble des projets que nous avons testés a permis d'affiner nos métriques, mais aussi de montrer la capacité de ces projets à enseigner l'utilisation d'un bus d'événements Kafka.
 
 #### Projet Beginner :
 
-Tout d'abord les projets de type débutant il sont assez simple il comporte selon nos critères uniquement un producer, un consumer et un topics.
+Tout d'abord, nous décrivons les projets de type débutant d'assez simples. En effet, selon nos critères, ils ne comportent uniquement un producer, un consumer et un topic.
 
-Ils permettent de comprendre assez facilement la configuration d'un bus et comment les communications sont établi. 
+Ils permettent de comprendre assez facilement la configuration d'un bus et comment les communications sont établies d'un point de vue technique. 
 
-Comme nous pouvons le voir sur le projet `Jerez007/Spring-Boot-Microservice` les services sont assez majoritaire est seulement une ccommunication est établi entre deux services.
+Comme nous pouvons le voir sur le projet `Jerez007/Spring-Boot-Microservice` les services sont assez majoritaires et une seule communication est établie entre deux services.
 
 ![Alt text](./assets/images/image.png)
 
 ![Alt text](./assets/images/image-1.png)
 
-Grâce à ce projet il serait assez facile de comprendre comment implémenter un bus kafka avec simple communication. D'autant plus que grâce au métrique nous pouvons ciblé quelle microservices utilise le bus. Pour ciblé l'apprentissage entre les deux consommateur
+Grâce à ce projet, il serait assez facile de comprendre comment implémenter un bus kafka avec simple communication. D'autant plus que grâce aux métriques, nous pouvons cibler quels microservices utilisent le bus afin de cibler l'apprentissage.
 
 #### Projet intermediate
 
-Ensuite les projets de type intermédiaire, il comporte selon nos critères moins de 5 producer, moins de 5 consumer et moins de 5 topics.
+Ensuite les projets de type intermédiaire comportent, selon nos critères, moins de 5 producers, moins de 5 consumers et moins de 5 topics.
 
-Nous avons pu constater que les projets intermediate sont souvent de bon élément pour démontrer une application microservices avec des communications varier entre plusieurs services. Nous avons pu constater aussi que les projets intermediaire permetter de voir des projet avec un ration Producer, Consumer et services assez équilibré. Comme nous pouvons le voir sur la figure ci-dessous. (Projet Github de `emeraldhieu/vinci`)
+Nous avons pu constater que les projets intermediate sont souvent de bons éléments pour démontrer une application microservices avec des communications variées entre plusieurs services. Nous avons pu constater aussi que les projets intermediaires permettaient de voir des projets avec un ratio producer, consumer et services assez équilibré. Comme nous pouvons le voir sur la figure ci-dessous. (Projet Github de `emeraldhieu/vinci`)
 
 ![Alt text](./assets/images/image-2.png)
 
 #### Projet Advanced
 
-Pour finir les projet dit avancée, il comporte selon nos critères  plus de 5 producer, plus de 5 consumer et plus de 5 topics.
+Pour finir les projets dits avancés comportent, selon nos critères, plus de 5 producer, plus de 5 consumer et plus de 5 topics.
 
-Nous avons pu analyser que ces projets sont souvent des bon contre exemple c'est-à dire qu'ils ont soit trop de topics soit top peu par rapport au nombre de producteurs et consommateurs nous pouvons le constater grâce au métriques de diversité des topics.
+Nous avons pu analyser que ces projets sont souvent des bons contre-exemples c'est-à dire qu'ils ont soit trop de topics, soit trop peu par rapport au nombre de producteurs et consommateurs. Nous pouvons le constater grâce aux métriques de diversité des topics.
 
-Ils sont de bon contre-exemple car ils ont souvent une communication entre les services peu ou mal défini. Nous pouvons remarquer notament avec l'exemple suivant (Projet de `casperboone/wdm-kafka-microservices`)
+Ils sont de bons contre-exemples, car ils ont souvent une communication entre les services peu ou mal définie. Nous pouvons remarquer notament avec l'exemple suivant (Projet de `casperboone/wdm-kafka-microservices`)
 
 ![Alt text](./assets/images/image-3.png)
 
 ![Alt text](./assets/images/image-4.png)
 
-Comme nous pouvons le constater sur ces images les services sont souvent producteur et consommateur. Nous pouvons aussi imaginer que l'order services peut très vite être soumis à la charge grace à son taux éléver de consommateurs.
+Comme nous pouvons le constater sur ces images les services sont souvent producteur et consommateur. Nous pouvons aussi imaginer que l'order service peut très vite être soumis à la charge grâce à son taux élevé de consommateurs.
 
 ### Critique & Limite
 
-- Comme nous pouvons le remarquer les métriques de ratio consumer/producer et Topics diversity peuvent être assez utile pour des projets avancé mais peut utile sur des projet débutant et intermédiare. 
+- Comme nous pouvons le remarquer les métriques de ratio consumer/producer et Topics diversity peuvent être assez utile pour des projets avancés, mais peu utiles sur des projets débutants et intermédiares. 
 
-- Nous aurons aimer aussi pouvoir analyser plus de langages pour pouvoir faire de comparaisons mais les differrences entre les langages était souvent trop importants pour nous permettre dans le temps imparti d'avoir une bonne analyse
+- Nous aurions aimé aussi pouvoir analyser plus de langages de programmation pour pouvoir faire des comparaisons, mais les différences entre les langages étaient souvent trop importantes pour nous permettre dans le temps imparti d'avoir une bonne analyse
 
-- Il était assez difficile de detérminer pour les producteurs dans quelle topic il envoyer les événements ce qui nous à freiner pour l'un de nos métriques qui aurait était un graphe permettant la vizualisation des communication entre les micro-services. Cependant la dificulté de déterminer les communications en analysant le code statiquement nous à fait abandonner cette idée.
+- Il était assez difficile de detérminer pour les producteurs dans quelle topic ils envoyaient les évènements, ce qui nous a freiné pour l'une de nos métriques qui aurait été un graphe permettant la visualisation des communications entre les micro-services. Cependant, la dificulté de déterminer les communications en analysant le code statiquement nous a fait abandonner cette idée.
 
 ## VI. Conclusion
 
 En conclusion, notre analyse approfondie des projets open source en microservices utilisant un bus Kafka a fourni des résultats significatifs pour évaluer la complexité, la diversité des communications et les niveaux d'apprentissage associés. Les métriques que nous avons développées, telles que la diversité des topics, le ratio producteurs/consommateurs, la répartition des services, et d'autres, ont permis une évaluation objective des projets.
 
-Malgré les résultats enrichissants, notre analyse a également révélé des limitations. Les métriques développées peuvent être plus pertinentes pour des projets avancés que pour des projets débutants et intermédiaires. La diversité des langages a également limité nos comparaisons, et la complexité de déterminer dynamiquement les communications entre les services a été un défi non résolu.
+Malgré les résultats enrichissants, notre analyse a également révélé des limitations. Les métriques développées peuvent être plus pertinentes pour des projets avancés que pour des projets débutants et intermédiaires. La diversité des langages a aussi limité nos comparaisons, et la complexité de déterminer dynamiquement les communications entre les services a été un défi non résolu.
 
-En dépit de ces limitations, notre approche a fourni des informations précieuses pour évaluer la pertinence et le niveau d'apprentissage associés à chaque projet. En conclusion, cette analyse fournit une base solide pour orienter les choix d'apprentissage et de mise en œuvre dans le domaine des microservices utilisant Kafka.
+En dépit de ces limitations, notre approche a fourni des informations précieuses pour évaluer la pertinence et le niveau d'apprentissage associés à chaque projet. Finalement, cette analyse fournit une base solide pour orienter les choix d'apprentissage et de mise en œuvre dans le domaine des microservices utilisant Kafka.
 
 ## VII. Outils
 
@@ -312,7 +300,7 @@ En dépit de ces limitations, notre approche a fourni des informations précieus
    - Ce dossier contient des scripts statistiques spécifiques pour les jeux de données, tels que des statistiques sur les langages. 
 
 2. **analyzer-data-set:**
-   - Ce dossier est crucial, hébergeant le script principal permettant d'analyser un projet. Il génère et affiche les métriques importantes associées au projet, offrant une vue d'ensemble des performances.
+   - Ce dossier héberge le script principal permettant d'analyser un projet. Il génère et affiche les métriques importantes associées au projet, offrant une vue d'ensemble des performances.
 
 3. **search-consumers:**
    - Ce dossier contient un script permettant de rechercher les consommateurs dans un environnement Kafka. Il facilite l'identification des composants qui consomment des données à partir d'un sujet particulier.
@@ -321,7 +309,7 @@ En dépit de ces limitations, notre approche a fourni des informations précieus
    - Ce dossier abrite un script destiné à la recherche des producteurs dans un système Kafka. Il simplifie la localisation des composants responsables de la production de données vers un sujet spécifique.
 
 5. **search-data-set-script:**
-   - Ce dossier héberge un script essentiel permettant de créer le premier ensemble de données en utilisant l'API GitHub. Il facilite la collecte initiale de données à partir du référentiel pour l'analyse ultérieure.
+   - Ce dossier héberge un script permettant de créer le premier ensemble de données en utilisant l'API GitHub. Il facilite la collecte initiale de données à partir du référentiel pour l'analyse ultérieure.
 
 6. **search-microservices:**
    - Ce dossier contient un script qui aide à identifier les microservices d'un projet. Il offre une vue détaillée de l'architecture en identifiant les composants qui fonctionnent de manière indépendante.
@@ -333,13 +321,13 @@ En dépit de ces limitations, notre approche a fourni des informations précieus
 ### Mode d'emploi pour l'utilisation de notre outil
 
 #### Pré-requis:
-⚠️ l'outil est utilisable uniquement dans un environement Unix
+⚠️ l'outil est utilisable uniquement dans un environnement Unix
 
-⚠️ Il faut avoir python 3.9 d'installé
+⚠️ Il faut avoir une installation de Python 3.9
 
 #### Démarche: 
 
-1. Pour lancer notre outil d'analyze sur un projet tous d'abord vous devez vous munir du nom d'un repo Github (par exemple sur le [dataset final](./assets/data-set-final.txt)).
+1. Pour lancer notre outil d'analyse sur un projet, tout d'abord vous devez vous munir du nom d'un repo Github (par exemple sur le [dataset final](./assets/data-set-final.txt)).
 
 2. `cd assets/code/analyzer-data-set`
 
