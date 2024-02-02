@@ -72,7 +72,7 @@ def render_content(tab):
                 'for',
                 html.Div(data['services_number'], style={'font-size': '45px', 'margin': '0 10px'}),
                 "service(s)"], style={'left': '-70px', 'top': '40px', 'position': 'relative', 'display': 'flex', 'align-items': 'center', 'font-size': '15px'}),
-        ], style={'width': '300px', 'display': 'flex', 'justify-content': 'center', 'background': 'rgb(52, 73, 94)', 'color': 'white', 'border-radius': '10px'})]
+        ], style={'width': '350px', 'display': 'flex', 'justify-content': 'center', 'background': 'rgb(52, 73, 94)', 'color': 'white', 'border-radius': '10px'})]
                 ,style={'display': 'flex', 'justify-content': 'center', 'align-items': 'center',})]
              ,style={'display': 'flex', 'justify-content': 'space-evenly', 'align-items': 'center',"flex-direction": "column"}),
     
@@ -87,7 +87,7 @@ def render_content(tab):
                 'for',
                 html.Div(data["consumers_number"], style={'font-size': '45px', 'margin': '0 10px'}),
                 "consumer(s)"], style={'left': '-70px', 'top': '40px', 'position': 'relative', 'display': 'flex', 'align-items': 'center', 'font-size': '15px'}),
-        ], style={'width': '300px', 'display': 'flex', 'justify-content': 'center', 'background': 'rgb(52, 73, 94)', 'color': 'white', 'border-radius': '10px'})]
+        ], style={'width': '350px', 'display': 'flex', 'justify-content': 'center', 'background': 'rgb(52, 73, 94)', 'color': 'white', 'border-radius': '10px'})]
                 ,style={'display': 'flex', 'justify-content': 'center', 'align-items': 'center', "flex-direction": "column"}),
     ], style={'display': 'flex', 'justify-content': 'space-evenly', 'align-items': 'center', 'margin': '30px'}),
     

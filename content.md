@@ -16,31 +16,6 @@ date:   2023-11
 
     Dans l'article de Blog [Debret 2020], l'auteure donne les éléments principaux de la démarche d'une manière simple et très facile à lire, dans la partie [Quelles sont les étapes d’une bonne démarche scientifique ?](https://www.scribbr.fr/article-scientifique/demarche-scientifique/#:~:text=La%20d%C3%A9marche%20scientifique%20permet%20d,de%20nouvelles%20hypoth%C3%A8ses%20%C3%A0%20tester.)
 
----
-
----
-# TODO : Supprimer ce bandeau avant le rendu
-
-Critères d'évaluation :
-- Présentation des résultats
-- Analyse des résultats et commentaires
-- Lien avec les hypothèses
-- Si nécessaires, préciser les limites
-- Recul et Pertinence des remarques
-- Retour sur vos contributions
-- Perspectives
-- Format : Structure, forme, ...
-- Contexte dont la motivation
-- Question générale : Formulation, intérêt, limites éventuelles.
-- Quelle est votre base d'information
-- Quelles sous-questions et hypothèses
-- Quelles expérimentations, démarches choisies pour vérifier ou non vos hypothèses, justifications.
-- Quels outils sont utilisés ?
-- Justification des choix
-- Résultats
-- Conclusion
----
-
 **_Février 2024_**
 
 ## Authors
@@ -265,18 +240,73 @@ Pour finir, nous avons deux métriques permettant de décrire visuellement le pr
 
 Ces métriques peuvent donner une vision globale de la distribution des responsabilités dans l'ensemble du projet. Ils permettent de comprendre les communications et de mettre en avant les services avec des responsabilités élevées en production et consommation d'événements.
 
-![prod_cons_services Ratio](image.png)
+![prod_cons_services Ratio](./assets/images/ratio_prod_cons_services.png)
 
-![Alt text](image-1.png)
+![Number_of_prod_cons_per_services](./assets/images/number_producer_consumer_per_service.png)
 
 Les diverses métriques que nous avons utilisées nous ont rendu capables d'évaluer un projet. Afin d'éviter toute interprétation subjective des projets, notre approche a consisté à les évaluer en fonction du niveau d'apprentissage requis. Nous avons attribué des indications de niveau, telles que débutant, intermédiaire ou avancé, pour refléter le degré de complexité et de compréhension nécessaire à la mise en œuvre réussie de ces projets.
 
-![Alt text](image-2.png)
+![Categorization](./assets/images/categorization.png)
 
+### Résultats de l'analyse
 
+Nous avons étudier une vingtaine de projet grâce à notre outils (le jeux de donnée final se trouve à la racine du dossier assets [dataset](./assets/data-set-final.txt))
 
+Tous ces projets que nous avons tester ont permis d'affiner nos métriques mais aussi de nous montrer si c'est projet peuvent permettre d'apprendre à utiliser un bus d'événement Kafka.
 
-## VI. Outils
+#### Projet Beginner :
+
+Tout d'abord les projets de type débutant il sont assez simple il comporte selon nos critères uniquement un producer, un consumer et un topics.
+
+Ils permettent de comprendre assez facilement la configuration d'un bus et comment les communications sont établi. 
+
+Comme nous pouvons le voir sur le projet `Jerez007/Spring-Boot-Microservice` les services sont assez majoritaire est seulement une ccommunication est établi entre deux services.
+
+![Alt text](./assets/images/image.png)
+
+![Alt text](./assets/images/image-1.png)
+
+Grâce à ce projet il serait assez facile de comprendre comment implémenter un bus kafka avec simple communication. D'autant plus que grâce au métrique nous pouvons ciblé quelle microservices utilise le bus. Pour ciblé l'apprentissage entre les deux consommateur
+
+#### Projet intermediate
+
+Ensuite les projets de type intermédiaire, il comporte selon nos critères moins de 5 producer, moins de 5 consumer et moins de 5 topics.
+
+Nous avons pu constater que les projets intermediate sont souvent de bon élément pour démontrer une application microservices avec des communications varier entre plusieurs services. Nous avons pu constater aussi que les projets intermediaire permetter de voir des projet avec un ration Producer, Consumer et services assez équilibré. Comme nous pouvons le voir sur la figure ci-dessous. (Projet Github de `emeraldhieu/vinci`)
+
+![Alt text](./assets/images/image-2.png)
+
+#### Projet Advanced
+
+Pour finir les projet dit avancée, il comporte selon nos critères  plus de 5 producer, plus de 5 consumer et plus de 5 topics.
+
+Nous avons pu analyser que ces projets sont souvent des bon contre exemple c'est-à dire qu'ils ont soit trop de topics soit top peu par rapport au nombre de producteurs et consommateurs nous pouvons le constater grâce au métriques de diversité des topics.
+
+Ils sont de bon contre-exemple car ils ont souvent une communication entre les services peu ou mal défini. Nous pouvons remarquer notament avec l'exemple suivant (Projet de `casperboone/wdm-kafka-microservices`)
+
+![Alt text](./assets/images/image-3.png)
+
+![Alt text](./assets/images/image-4.png)
+
+Comme nous pouvons le constater sur ces images les services sont souvent producteur et consommateur. Nous pouvons aussi imaginer que l'order services peut très vite être soumis à la charge grace à son taux éléver de consommateurs.
+
+### Critique & Limite
+
+- Comme nous pouvons le remarquer les métriques de ratio consumer/producer et Topics diversity peuvent être assez utile pour des projets avancé mais peut utile sur des projet débutant et intermédiare. 
+
+- Nous aurons aimer aussi pouvoir analyser plus de langages pour pouvoir faire de comparaisons mais les differrences entre les langages était souvent trop importants pour nous permettre dans le temps imparti d'avoir une bonne analyse
+
+- Il était assez difficile de detérminer pour les producteurs dans quelle topic il envoyer les événements ce qui nous à freiner pour l'un de nos métriques qui aurait était un graphe permettant la vizualisation des communication entre les micro-services. Cependant la dificulté de déterminer les communications en analysant le code statiquement nous à fait abandonner cette idée.
+
+## VI. Conclusion
+
+En conclusion, notre analyse approfondie des projets open source en microservices utilisant un bus Kafka a fourni des résultats significatifs pour évaluer la complexité, la diversité des communications et les niveaux d'apprentissage associés. Les métriques que nous avons développées, telles que la diversité des topics, le ratio producteurs/consommateurs, la répartition des services, et d'autres, ont permis une évaluation objective des projets.
+
+Malgré les résultats enrichissants, notre analyse a également révélé des limitations. Les métriques développées peuvent être plus pertinentes pour des projets avancés que pour des projets débutants et intermédiaires. La diversité des langages a également limité nos comparaisons, et la complexité de déterminer dynamiquement les communications entre les services a été un défi non résolu.
+
+En dépit de ces limitations, notre approche a fourni des informations précieuses pour évaluer la pertinence et le niveau d'apprentissage associés à chaque projet. En conclusion, cette analyse fournit une base solide pour orienter les choix d'apprentissage et de mise en œuvre dans le domaine des microservices utilisant Kafka.
+
+## VII. Outils
 
 1. **analyze-data-set-statistic:**
    - Ce dossier contient des scripts statistiques spécifiques pour les jeux de données, tels que des statistiques sur les langages. 
@@ -299,7 +329,27 @@ Les diverses métriques que nous avons utilisées nous ont rendu capables d'éva
 7. **search-topic:**
    - Ce dossier abrite un script facilitant la recherche de sujets dans un environnement Kafka. Il permet d'explorer et d'analyser les différents sujets utilisés dans le système.
 
-## VI. Références
+
+### Mode d'emploi pour l'utilisation de notre outil
+
+#### Pré-requis:
+⚠️ l'outil est utilisable uniquement dans un environement Unix
+
+⚠️ Il faut avoir python 3.9 d'installé
+
+#### Démarche: 
+
+1. Pour lancer notre outil d'analyze sur un projet tous d'abord vous devez vous munir du nom d'un repo Github (par exemple sur le [dataset final](./assets/data-set-final.txt)).
+
+2. `cd assets/code/analyzer-data-set`
+
+3. `pip install -r requirements.txt`
+
+4. `./analyze-data-one-project.sh <username/votre_projet_github>`
+
+5. Ouvrer votre navigateur sur l'adresse [http://127.0.0.1:8050/](http://127.0.0.1:8050/)
+
+## VIII. Références
 
 [Debret 2020] Debret, J. (2020) La démarche scientifique : tout ce que vous devez savoir ! \
 Available at: https://www.scribbr.fr/article-scientifique/demarche-scientifique/.
